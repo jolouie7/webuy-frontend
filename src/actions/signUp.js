@@ -9,13 +9,13 @@ const signUp = (e, userInfo) => {
         Accept: "application/json"
       },
       body: JSON.stringify({
-        
+        user: {
           name: userInfo.name,
           username: userInfo.username,
           bio: userInfo.bio,
           password: userInfo.password,
           password_confirmation: userInfo.password_confirmation
-      })
+      }})
     })
     .then(res => res.json())
     .then(console.log);
