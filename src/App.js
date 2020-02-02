@@ -6,6 +6,7 @@ import SignUp from "./components/signUp";
 import SignIn from "./components/signIn";
 import HomePage from "./components/HomePage";
 import getUser from "./actions/getUser"
+import logout from "./actions/logout"
 
 class App extends Component {
   // constructor(props) {
@@ -13,7 +14,7 @@ class App extends Component {
   // }
 
   componentDidMount() {
-    this.props.getUser()
+    this.props.getUser();
   }
 
   // handleClick = () => {
@@ -38,6 +39,14 @@ class App extends Component {
   //     .then(data => console.log(data));
   // }
 
+  handleClick = event => {
+    event.preventDefault();
+    // Remove the token from localStorage
+    localStorage.removeItem("token");
+    // Remove the user object from the Redux store
+    this.props.logout();
+  };
+
   render() {
     return (
       <Router>
@@ -48,15 +57,22 @@ class App extends Component {
             <Route exact path="/signup" component={SignUp} />
             <Route exact path="/signin" component={SignIn} />
           </Switch>
-          {/* <button onClick={this.handleClick}>Post</button> */}
+          {/* {this.props.currentUser.username ? ( */}
+            <button onClick={this.handleClick}>Log Out</button>
+          {/* ) : null} */}
         </div>
       </Router>
     );
   }
 }
 
-const mapDispatchToProps = dispatch => ({
-  getUser: () => dispatch(getUser())
+const mapStateToProps = state => ({
+  // currentUser: state.reducer.currentUser
 });
 
-export default connect(null, mapDispatchToProps)(App);
+const mapDispatchToProps = dispatch => ({
+  getUser: () => dispatch(getUser()),
+  logout: () => dispatch(logout())
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
