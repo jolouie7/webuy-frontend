@@ -33,6 +33,7 @@ const signUp = (userInfo) => {
           // console.log(data.user.data);
           // {id: "18", type: "user", attributes: {…}}
           // console.log(data.user.data.attributes);
+          console.log("action signup L36")
           // {username: "jo11", name: "jo", bio: "jo", email: "jo"}
           // ----------- Theres no password being shown for attributes ----------------------
         }
@@ -53,7 +54,7 @@ const signUp = (userInfo) => {
 // move to signIn action file
 const loginUser = userObj => ({
   type: "SIGNIN_USER",
-  payload: userObj.data.attributes
+  payload: userObj
   // payload: userObj
 });
 

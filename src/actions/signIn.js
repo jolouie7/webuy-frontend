@@ -16,6 +16,7 @@ export const signIn = (userInfo) => {
     })
       .then(resp => resp.json())
       .then(data => {
+        console.log(data)
         if (data.message) {
           // Here you should have logic to handle invalid login credentials.
           // This assumes your Rails API will return a JSON object with a key of
@@ -32,6 +33,6 @@ export const signIn = (userInfo) => {
 // move to signIn action file
 const loginUser = userObj => ({
   type: "SIGNIN_USER",
-  payload: userObj.data.attributes
+  payload: userObj
   // payload: userObj
 });

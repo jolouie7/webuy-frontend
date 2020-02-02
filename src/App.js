@@ -4,7 +4,8 @@ import { connect } from "react-redux";
 // import NavBar from "./containers/navBar";
 import SignUp from "./components/signUp";
 import SignIn from "./components/signIn";
-import HomePage from "./components/HomePage"
+import HomePage from "./components/HomePage";
+import getUser from "./actions/getUser"
 
 class App extends Component {
   // constructor(props) {
@@ -12,36 +13,30 @@ class App extends Component {
   // }
 
   componentDidMount() {
-    fetch("http://localhost:3000/users", {
-      method: "GET",
-      headers: {
-        Authorization: `Bearer <token>`
-      }
-    })
-    .then(res => (res.json()));
+    this.props.getUser()
   }
 
-  handleClick = () => {
-    fetch("http://localhost:3000/users", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json"
-      },
-      body: JSON.stringify({
-        user: {
-          name: "willy",
-          username: "willy1119",
-          email: "willy111@gmail.com",
-          bio: "I love life",
-          password: "1Wqe93aw",
-          password_confirmation: "1Wqe93aw"
-        }
-      })
-    })
-      .then(res => res.json())
-      .then(data => console.log(data));
-  }
+  // handleClick = () => {
+  //   fetch("http://localhost:3000/users", {
+  //     method: "POST",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //       Accept: "application/json"
+  //     },
+  //     body: JSON.stringify({
+  //       user: {
+  //         name: "willy",
+  //         username: "willy1119",
+  //         email: "willy111@gmail.com",
+  //         bio: "I love life",
+  //         password: "1Wqe93aw",
+  //         password_confirmation: "1Wqe93aw"
+  //       }
+  //     })
+  //   })
+  //     .then(res => res.json())
+  //     .then(data => console.log(data));
+  // }
 
   render() {
     return (
@@ -60,4 +55,8 @@ class App extends Component {
   }
 }
 
-export default App
+const mapDispatchToProps = dispatch => ({
+  getUser: () => dispatch(getUser())
+});
+
+export default connect(null, mapDispatchToProps)(App);
