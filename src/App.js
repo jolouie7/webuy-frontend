@@ -11,15 +11,15 @@ class App extends Component {
   //   super(props);
   // }
 
-  // componentDidMount() {
-  //   fetch("http://localhost:3000/users", {
-  //     method: "GET",
-  //     headers: {
-  //       Authorization: `Bearer <token>`
-  //     }
-  //   })
-  //   .then(res => (res.json()));
-  // }
+  componentDidMount() {
+    fetch("http://localhost:3000/users", {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer <token>`
+      }
+    })
+    .then(res => (res.json()));
+  }
 
   handleClick = () => {
     fetch("http://localhost:3000/users", {

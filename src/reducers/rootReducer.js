@@ -5,8 +5,8 @@ const initialState ={
 
 const rootReducer = (state = initialState, action) => {
   switch (action.type) {
-    case "ADD_USERINFO":
-      return state;
+    case "SIGNIN_USER":
+      return {...state, currentUser: action.payload}
     default:
       return state;
   }
