@@ -1,6 +1,8 @@
+// import {Redirect} from 'react-router-dom'
 // const signUp = (e, userInfo, history) => {
-const signUp = (userInfo) => {
+const signUp = (e, userInfo, history) => {
   // do something with loading here
+  e.preventDefault();
   return dispatch => {
     console.log(userInfo)
     return fetch("http://localhost:3000/users", {
@@ -27,17 +29,19 @@ const signUp = (userInfo) => {
         } else {
           localStorage.setItem("token", data.jwt);
           // check what data.user really is
-          dispatch(loginUser(data.user));
+          dispatch(loginUser(data.user.data.attributes));
           // console.log(data.user);
           // {data: {…}}
           // console.log(data.user.data);
           // {id: "18", type: "user", attributes: {…}}
           // console.log(data.user.data.attributes);
-          console.log("action signup L36")
           // {username: "jo11", name: "jo", bio: "jo", email: "jo"}
           // ----------- Theres no password being shown for attributes ----------------------
         }
-      });
+      })
+      .then(() => {
+        history.push('/')
+      })
       // .then(data => {
       //   // check to see if this is the current attributes
       //   dispatch({ type: "SET_CURRENT_USER", user: data.user });

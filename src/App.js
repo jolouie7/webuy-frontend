@@ -7,6 +7,7 @@ import SignIn from "./components/signIn";
 import HomePage from "./components/HomePage";
 import getUser from "./actions/getUser"
 import logout from "./actions/logout"
+import NavBar from "./containers/navBar";
 
 class App extends Component {
   // constructor(props) {
@@ -39,6 +40,7 @@ class App extends Component {
   //     .then(data => console.log(data));
   // }
 
+  // This handleClick is for logging out. Maybe change the name of this event handler
   handleClick = event => {
     event.preventDefault();
     // Remove the token from localStorage
@@ -51,15 +53,24 @@ class App extends Component {
     return (
       <Router>
         <div>
-          {/* <NavBar /> */}
+          <NavBar />
           <Switch>
-            <Route exact path="/" component={HomePage} />
-            <Route exact path="/signup" component={SignUp} />
-            <Route exact path="/signin" component={SignIn} />
+            <Route exact path="/" render={props => <HomePage {...props} />} />
+            <Route
+              exact
+              path="/signup"
+              render={props => <SignUp {...props} />}
+            />
+            <Route
+              exact
+              path="/signin"
+              render={props => <SignIn {...props} />}
+            />
           </Switch>
-          {/* {this.props.currentUser.username ? ( */}
+          {/* Place this code below somewhere instead of App.js */}
+          {Object.keys(this.props.currentUser).length !== 0 ? (
             <button onClick={this.handleClick}>Log Out</button>
-          {/* ) : null} */}
+          ) : null}
         </div>
       </Router>
     );
@@ -67,7 +78,7 @@ class App extends Component {
 }
 
 const mapStateToProps = state => ({
-  // currentUser: state.reducer.currentUser
+  currentUser: state.currentUser
 });
 
 const mapDispatchToProps = dispatch => ({

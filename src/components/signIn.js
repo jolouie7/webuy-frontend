@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { signIn } from "../actions/signIn";
+import signIn from "../actions/signIn";
 
 class SignIn extends Component {
   state = {
@@ -15,14 +15,15 @@ class SignIn extends Component {
     });
   };
 
-  handleSubmit = event => {
-    event.preventDefault();
-    this.props.signIn(this.state);
-  };
+  // handleSubmit = e => {
+  //   e.preventDefault();
+  //   this.props.signIn(e, this.state, this.props.history);
+  // };
 
   render() {
+    // console.log(this.props)
     return (
-      <form onSubmit={this.handleSubmit}>
+      <form onSubmit={(e) => { this.props.signIn(e, this.state, this.props.history) }}>
         <h1>Login</h1>
 
         <label>Username</label>
@@ -54,14 +55,14 @@ class SignIn extends Component {
         />
         <br />
 
-        <input type="submit" />
+        <input type="submit" value="SignIn"/>
       </form>
     );
   }
 }
 
 const mapDispatchToProps = dispatch => ({
-  signIn: userInfo => dispatch(signIn(userInfo))
+  signIn: (e, userInfo, history) => dispatch(signIn(e, userInfo, history))
 });
 
 export default connect(null, mapDispatchToProps)(SignIn);

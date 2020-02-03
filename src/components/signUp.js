@@ -19,15 +19,16 @@ class Signup extends Component {
     });
   };
 
-  handleSubmit = event => {
-    event.preventDefault();
-    console.log("handle submit")
-    this.props.signUp(this.state);
-  };
+  // handleSubmit = event => {
+  //   event.preventDefault();
+  //   console.log("handle submit")
+  //   this.props.signUp(this.state);
+  // };
 
   render() {
+    console.log(this.props)
     return (
-      <form onSubmit={this.handleSubmit}>
+      <form onSubmit={(e) => { this.props.signUp(e, this.state, this.props.history) }}>
         <h1>Sign Up For An Account</h1>
 
         <label>Username</label>
@@ -85,14 +86,14 @@ class Signup extends Component {
         />
         <br />
 
-        <input type="submit" />
+        <input type="submit" value="SignUp" />
       </form>
     );
   }
 }
 
 const mapDispatchToProps = dispatch => ({
-  signUp: userInfo => dispatch(signUp(userInfo))
+  signUp: (e, userInfo, history) => dispatch(signUp(e, userInfo, history))
 });
 
 export default connect(null, mapDispatchToProps)(Signup);

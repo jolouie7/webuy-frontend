@@ -1,4 +1,5 @@
-export const signIn = (userInfo) => {
+const signIn = (e, userInfo, history) => {
+  e.preventDefault();
   return dispatch => {
     return fetch("http://localhost:3000/signin", {
       method: "POST",
@@ -24,9 +25,12 @@ export const signIn = (userInfo) => {
           console.log("ERROR with signing in");
         } else {
           localStorage.setItem("token", data.jwt);
-          dispatch(loginUser(data.user));
+          dispatch(loginUser(data.user.data.attributes));
         }
-      });
+      })
+      .then(() => {
+        history.push("/")
+      })
   };
 };
 
@@ -36,3 +40,5 @@ const loginUser = userObj => ({
   payload: userObj
   // payload: userObj
 });
+
+export default signIn;
