@@ -12,6 +12,7 @@ import logout from "./actions/logout"
 import NavBar from "./containers/navBar";
 import SignOut from "./components/signOut"
 import ItemCarousel from "./components/ItemCarousel";
+import ItemDeals from "./containers/ItemDeals"
 
 class App extends Component {
   // constructor(props) {
@@ -59,8 +60,12 @@ class App extends Component {
     return (
       <div>
         {/* <Route render={props => <NavBar {...props}/>} /> */}
-          <NavBar />
-          {/* <ItemCarousel /> */}
+          {/* <NavBar /> */}
+          <ItemDeals />
+          {/* <ItemCarousel />
+          <ItemCarousel />
+          <ItemCarousel />
+          <ItemCarousel /> */}
         <Switch>
           {/* <Route exact path="/" render={props => <HomePage {...props} />} /> */}
           <Route
