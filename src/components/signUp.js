@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 // import { userPostFetch } from "../redux/actions";
 import signUp from "../actions/signUp";
+import "../styles/SignUpStyle.css"
 
 class Signup extends Component {
   state = {
@@ -26,68 +27,80 @@ class Signup extends Component {
   // };
 
   render() {
-    console.log(this.props)
+    // console.log(this.props)
     return (
-      <form onSubmit={(e) => { this.props.signUp(e, this.state, this.props.history) }}>
-        <h1>Sign Up For An Account</h1>
+      <div>
+        <form
+          onSubmit={e => {
+            this.props.signUp(e, this.state, this.props.history);
+          }}
+        >
+          <h1>Create Account</h1>
 
-        <label>Username</label>
-        <input
-          name="username"
-          placeholder="Username"
-          value={this.state.username}
-          onChange={this.handleChange}
-        />
-        <br />
+          <label>Username</label>
+          <br />
+          <input
+            name="username"
+            placeholder="Username"
+            value={this.state.username}
+            onChange={this.handleChange}
+          />
+          <br />
 
-        <label>Password</label>
-        <input
-          type="password"
-          name="password"
-          placeholder="Password"
-          value={this.state.password}
-          onChange={this.handleChange}
-        />
-        <br />
+          <label>Password</label>
+          <br />
+          <input
+            type="password"
+            name="password"
+            placeholder="Password"
+            value={this.state.password}
+            onChange={this.handleChange}
+          />
+          <br />
 
-        <label>Password Confirmation</label>
-        <input
-          type="password"
-          name="password_confirmation"
-          placeholder="Password_confirmation"
-          value={this.state.password_confirmation}
-          onChange={this.handleChange}
-        />
-        <br />
+          <label>Password Confirmation</label>
+          <br />
+          <input
+            type="password"
+            name="password_confirmation"
+            placeholder="Password_confirmation"
+            value={this.state.password_confirmation}
+            onChange={this.handleChange}
+          />
+          <br />
 
-        <label>Name</label>
-        <input
-          name="name"
-          value={this.state.name}
-          onChange={this.handleChange}
-        />
-        <br />
+          <label>Name</label>
+          <br />
+          <input
+            name="name"
+            value={this.state.name}
+            onChange={this.handleChange}
+          />
+          <br />
 
-        <label>Bio</label>
-        <textarea
-          name="bio"
-          placeholder="Bio"
-          value={this.state.bio}
-          onChange={this.handleChange}
-        />
-        <br />
+          <label>Bio</label>
+          <br />
+          <textarea
+            name="bio"
+            placeholder="Bio"
+            value={this.state.bio}
+            onChange={this.handleChange}
+          />
+          <br />
 
-        <label>Email</label>
-        <input
-          name="email"
-          placeholder="Email"
-          value={this.state.email}
-          onChange={this.handleChange}
-        />
-        <br />
+          <label>Email</label>
+          <br />
+          <input
+            name="email"
+            placeholder="Email"
+            value={this.state.email}
+            onChange={this.handleChange}
+          />
+          <br />
 
-        <input type="submit" value="SignUp" />
-      </form>
+          <input type="submit" value="SignUp" />
+        </form>
+      </div>
     );
   }
 }

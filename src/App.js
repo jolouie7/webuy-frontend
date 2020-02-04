@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
-import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-dom';
+// import { push, syncHistoryWithStore } from "react-router-redux";
+import { BrowserRouter as Router, Route, Switch, withRouter } from 'react-router-dom';
 import { connect } from "react-redux";
+import {compose} from "redux";
 // import NavBar from "./containers/navBar";
 import SignUp from "./components/signUp";
 import SignIn from "./components/signIn";
@@ -8,6 +10,7 @@ import HomePage from "./components/HomePage";
 import getUser from "./actions/getUser"
 import logout from "./actions/logout"
 import NavBar from "./containers/navBar";
+import SignOut from "./components/signOut"
 
 class App extends Component {
   // constructor(props) {
@@ -46,33 +49,34 @@ class App extends Component {
     // Remove the token from localStorage
     localStorage.removeItem("token");
     // Remove the user object from the Redux store
-    this.props.logout();
+    // debugger
+    this.props.logout(this.props.history);
+    console.log(this.props.history)
   };
 
   render() {
     return (
-      <Router>
-        <div>
-          <NavBar />
-          <Switch>
-            <Route exact path="/" render={props => <HomePage {...props} />} />
-            <Route
-              exact
-              path="/signup"
-              render={props => <SignUp {...props} />}
-            />
-            <Route
-              exact
-              path="/signin"
-              render={props => <SignIn {...props} />}
-            />
-          </Switch>
-          {/* Place this code below somewhere instead of App.js */}
-          {Object.keys(this.props.currentUser).length !== 0 ? (
-            <button onClick={this.handleClick}>Log Out</button>
-          ) : null}
-        </div>
-      </Router>
+      <div>
+        {/* <Route render={props => <NavBar {...props}/>} /> */}
+        <Switch>
+          <Route exact path="/" render={props => <HomePage {...props} />} />
+          <Route
+            exact
+            path="/signup"
+            render={props => <SignUp {...props} />}
+          />
+          <Route
+            exact
+            path="/signin"
+            render={props => <SignIn {...props} />}
+          />
+        </Switch>
+        {/* Place this code below somewhere instead of App.js */}
+        {Object.keys(this.props.currentUser).length !== 0 ? (
+          <button onClick={this.handleClick}>Log Out</button>
+        ) : null}
+        {/* <SignOut onClick={this.handleClick}/> */}
+      </div>
     );
   }
 }
@@ -83,7 +87,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   getUser: () => dispatch(getUser()),
-  logout: () => dispatch(logout())
+  logout: (history) => dispatch(logout(history))
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default compose(withRouter,connect(mapStateToProps, mapDispatchToProps))(App);

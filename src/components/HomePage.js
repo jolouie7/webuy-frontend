@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from "react-redux";
+import {Link} from "react-router-dom";
 
 class HomePage extends Component {
   render() {
@@ -7,7 +8,8 @@ class HomePage extends Component {
     console.log(this.props.currentUser);
     return (
       <div>
-        <p> Hi, {this.props.currentUser.name}</p>
+        { this.props.currentUser.name ? <p> Hi, {this.props.currentUser.name}</p> : <Link to="/signin">SignIn</Link> }
+        {/* <p> Hi, {this.props.currentUser.name}</p> */}
         {/* {console.log(this.props.currentUser)} */}
       </div>
     );

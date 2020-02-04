@@ -1,4 +1,3 @@
-
 const getUser = () => {
   return dispatch => {
     const token = localStorage.token;
