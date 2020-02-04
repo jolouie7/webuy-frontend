@@ -11,6 +11,7 @@ import getUser from "./actions/getUser"
 import logout from "./actions/logout"
 import NavBar from "./containers/navBar";
 import SignOut from "./components/signOut"
+import ItemCarousel from "./components/ItemCarousel";
 
 class App extends Component {
   // constructor(props) {
@@ -58,8 +59,10 @@ class App extends Component {
     return (
       <div>
         {/* <Route render={props => <NavBar {...props}/>} /> */}
+          <NavBar />
+          {/* <ItemCarousel /> */}
         <Switch>
-          <Route exact path="/" render={props => <HomePage {...props} />} />
+          {/* <Route exact path="/" render={props => <HomePage {...props} />} /> */}
           <Route
             exact
             path="/signup"

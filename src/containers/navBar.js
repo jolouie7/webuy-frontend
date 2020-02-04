@@ -1,3 +1,34 @@
+import React from 'react'
+import mainLogo from "../../src/images/logo192.png"
+import "../styles/NavBarStyle.scss"
+
+export default function navBar() {
+  return (
+    <div className="navbar__container">
+      <div className="navbar__img">
+        <img src={mainLogo} alt="main logo" />
+      </div>
+      <div className="navbar__search">
+        <input type="text" name="search" />
+      </div>
+      <div className="navbar__buttons">
+        <div className="navbar__login">
+          <a href="#">LOGIN</a>
+        </div>
+        <div className="navbar__orders">
+          <a href="#">MY ORDERS</a>
+        </div>
+        <div className="navbar__cart">
+          <a href="#">CART</a>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+
+
+// ---------------------- Material UI ----------------------------------------
 // import React from "react";
 // import { fade, makeStyles } from "@material-ui/core/styles";
 // import AppBar from "@material-ui/core/AppBar";
@@ -238,3 +269,4 @@
 //     </div>
 //   );
 // }
+// ---------------------- Material UI ----------------------------------------
