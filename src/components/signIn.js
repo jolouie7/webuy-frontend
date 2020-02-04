@@ -29,7 +29,6 @@ class SignIn extends Component {
         <label>Username</label>
         <input
           name="username"
-          placeholder="Username"
           value={this.state.username}
           onChange={this.handleChange}
         />
@@ -39,7 +38,6 @@ class SignIn extends Component {
         <input
           type="password"
           name="password"
-          placeholder="Password"
           value={this.state.password}
           onChange={this.handleChange}
         />
@@ -49,13 +47,12 @@ class SignIn extends Component {
         <input
           type="password"
           name="password_confirmation"
-          placeholder="Password Confirmation"
           value={this.state.password_confirmation}
           onChange={this.handleChange}
         />
         <br />
 
-        <input type="submit" value="SignIn"/>
+        <input type="submit" value="Login"/>
       </form>
     );
   }

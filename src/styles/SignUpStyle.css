@@ -1,3 +1,38 @@
-* {
+/* * {
   position: relative;
+} */
+
+.container {
+  margin-top: 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form__container {
+  width: 500px;
+  /* margin-left: auto; */
+  /* text-align: center; */
+}
+
+/* .content-center  {
+  text-align: center;
+} */
+
+.form__group input {
+  width: 50%;
+}
+
+.form__group {
+  /* background-color: green; */
+  margin-bottom: 2rem;
+  display:flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.form__signup {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

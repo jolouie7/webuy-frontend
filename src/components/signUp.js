@@ -29,76 +29,82 @@ class Signup extends Component {
   render() {
     // console.log(this.props)
     return (
-      <div>
+      <div className="container">
         <form
+          className="form__container"
           onSubmit={e => {
             this.props.signUp(e, this.state, this.props.history);
           }}
         >
-          <h1>Create Account</h1>
+          <h1 className="content-center">Create Account</h1>
 
-          <label>Username</label>
-          <br />
-          <input
-            name="username"
-            placeholder="Username"
-            value={this.state.username}
-            onChange={this.handleChange}
-          />
-          <br />
+          <div className="form__group">
+            <label>Username</label>
 
-          <label>Password</label>
-          <br />
-          <input
-            type="password"
-            name="password"
-            placeholder="Password"
-            value={this.state.password}
-            onChange={this.handleChange}
-          />
-          <br />
+            <input
+              name="username"
+              value={this.state.username}
+              onChange={this.handleChange}
+            />
+            <br />
+          </div>
 
-          <label>Password Confirmation</label>
-          <br />
-          <input
-            type="password"
-            name="password_confirmation"
-            placeholder="Password_confirmation"
-            value={this.state.password_confirmation}
-            onChange={this.handleChange}
-          />
-          <br />
+          <div className="form__group">
+            <label>Password</label>
+            <input
+              type="password"
+              name="password"
+              value={this.state.password}
+              onChange={this.handleChange}
+            />
+            <br />
+          </div>
 
-          <label>Name</label>
-          <br />
-          <input
-            name="name"
-            value={this.state.name}
-            onChange={this.handleChange}
-          />
-          <br />
+          <div className="form__group">
+            <label>Password Confirmation</label>
+            <input
+              type="password"
+              name="password_confirmation"
+              value={this.state.password_confirmation}
+              onChange={this.handleChange}
+            />
+            <br />
+          </div>
 
-          <label>Bio</label>
-          <br />
-          <textarea
-            name="bio"
-            placeholder="Bio"
-            value={this.state.bio}
-            onChange={this.handleChange}
-          />
-          <br />
+          <div className="form__group">
+            <label>Name</label>
+            <input
+              name="name"
+              value={this.state.name}
+              onChange={this.handleChange}
+            />
+            <br />
+          </div>
 
-          <label>Email</label>
-          <br />
-          <input
-            name="email"
-            placeholder="Email"
-            value={this.state.email}
-            onChange={this.handleChange}
-          />
-          <br />
+          <div className="form__group">
+            <label>Bio</label>
+            <textarea
+              name="bio"
+              value={this.state.bio}
+              onChange={this.handleChange}
+              rows="2"
+              cols="10"
+            />
+            <br />
+          </div>
 
-          <input type="submit" value="SignUp" />
+          <div className="form__group">
+            <label>Email</label>
+            <input
+              name="email"
+              value={this.state.email}
+              onChange={this.handleChange}
+            />
+            <br />
+          </div>
+          <div className="form__signup">
+            <input type="submit" value="SignUp" />
+          </div>
         </form>
       </div>
     );
