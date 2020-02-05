@@ -13,6 +13,7 @@ import NavBar from "./containers/navBar";
 import SignOut from "./components/signOut"
 import ItemCarousel from "./components/ItemCarousel";
 import ItemDeals from "./containers/ItemDeals"
+import "./styles/App.scss"
 
 class App extends Component {
   // constructor(props) {
@@ -60,24 +61,21 @@ class App extends Component {
     return (
       <div>
         {/* <Route render={props => <NavBar {...props}/>} /> */}
-          {/* <NavBar /> */}
+        {/* <NavBar /> */}
+        <div id="main-page">
           <ItemDeals />
-          {/* <ItemCarousel />
           <ItemCarousel />
+          <hr />
           <ItemCarousel />
-          <ItemCarousel /> */}
+          <hr />
+          <ItemCarousel />
+          <hr />
+          <ItemCarousel />
+        </div>
         <Switch>
           {/* <Route exact path="/" render={props => <HomePage {...props} />} /> */}
-          <Route
-            exact
-            path="/signup"
-            render={props => <SignUp {...props} />}
-          />
-          <Route
-            exact
-            path="/signin"
-            render={props => <SignIn {...props} />}
-          />
+          <Route exact path="/signup" render={props => <SignUp {...props} />} />
+          <Route exact path="/signin" render={props => <SignIn {...props} />} />
         </Switch>
         {/* Place this code below somewhere instead of App.js */}
         {Object.keys(this.props.currentUser).length !== 0 ? (

@@ -1,6 +1,7 @@
 .grid-container {
   display: grid;
   grid-template-columns: auto auto auto auto auto auto auto;
+  // border-bottom: black 1px solid;
 }
 
 .grid-item {
@@ -26,9 +27,10 @@
 .carousel__category {
   display: flex;
   justify-content: flex-end;
-  padding-right: 5%;
+  padding-right: 11%;
   padding-left: 11%;
-
+  margin-top: 5rem;
+  
   div {
     margin-right: auto;
   }

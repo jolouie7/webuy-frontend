@@ -1,6 +1,10 @@
-// .item-deal__container {
-
-// }
+.item-deal__container {
+  // background-color: red;
+  height: 95%vh;
+  text-align: center;
+  background-image: url("../images/unsplash-beauty-background.jpeg");
+  background-size: cover;
+}
 
 .item-deal__title {
   display: flex;
@@ -8,9 +12,28 @@
   align-items: center;
   flex-wrap: wrap;
   flex-direction: column;
+  
+  h1:first-child {
+    margin-top: 20%;
+  }
 
   h1:nth-child(2) {
-    background-color: red;
-    margin: 0;
+    margin: 0 0 10rem 0;
+  }
+}
+
+.item-deal__group {
+  margin-left: 20%;
+  text-align: center;
+  display: grid;
+  grid-template-columns: 200px 200px 200px;
+  justify-content: space-evenly;
+  background-color: white;
+  width: 60%;
+
+  .grid-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 }
