@@ -1,0 +1,55 @@
+.footer-container {
+  display: grid;
+  // grid-template-columns: auto auto auto;
+  // grid-template-areas: 
+  // ". ftl ftl fr1 fr2 fr3"
+  // "sm sm sm sm sm sm";
+  // grid-template-rows: 1fr 1fr;
+  // grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: repeat(7, 1fr);
+  // grid-auto-rows: 100px; 
+}
+
+.footer-left {
+  // grid-area: ftl;
+  grid-column: 2/5;
+  grid-row: 2/5;
+}
+.footer-right-group {
+  grid-column: 5/8;
+  grid-row: 2/5;
+  display: grid;
+  grid-template-columns: 25% 25% 25%;
+  // position: relative;
+  // flex-wrap: wrap;
+  // flex-direction: column;
+  a {
+    background: red;
+    width: 300px;
+  }
+  // --------------------------- Get the clickable links to stacks ----------------------------
+  .footer__clickables {
+    display: flex;
+    flex-direction: column;
+    // flex-wrap: wrap;
+  }
+}
+    .footer-right-1 {
+      // grid-area: fr1;
+      // width: 400px;
+    }
+    .footer-right-2 {
+      // grid-area: fr2;
+      // width: 400px;
+    }
+.footer-right-3 {
+  // grid-area: fr3;
+}
+.social-media {
+  // grid-area: sm;
+  grid-column: 3/5;
+  grid-row: 6/7;
+  display: flex;
+  justify-content: space-evenly;
+}

@@ -11,9 +11,8 @@ import getUser from "./actions/getUser"
 import logout from "./actions/logout"
 import NavBar from "./containers/navBar";
 import SignOut from "./components/signOut"
-import ItemCarousel from "./components/ItemCarousel";
-import ItemDeals from "./containers/ItemDeals"
 import "./styles/App.scss"
+import Footer from "./components/Footer";
 
 class App extends Component {
   // constructor(props) {
@@ -62,21 +61,12 @@ class App extends Component {
       <div>
         {/* <Route render={props => <NavBar {...props}/>} /> */}
         {/* <NavBar /> */}
-        <div id="main-page">
-          <ItemDeals />
-          <ItemCarousel />
-          <hr />
-          <ItemCarousel />
-          <hr />
-          <ItemCarousel />
-          <hr />
-          <ItemCarousel />
-        </div>
         <Switch>
-          {/* <Route exact path="/" render={props => <HomePage {...props} />} /> */}
+          <Route exact path="/" render={props => <HomePage {...props} />} />
           <Route exact path="/signup" render={props => <SignUp {...props} />} />
           <Route exact path="/signin" render={props => <SignIn {...props} />} />
         </Switch>
+        <Footer />
         {/* Place this code below somewhere instead of App.js */}
         {Object.keys(this.props.currentUser).length !== 0 ? (
           <button onClick={this.handleClick}>Log Out</button>
