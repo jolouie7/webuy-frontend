@@ -13,29 +13,33 @@ export default function Footer() {
       <div className="footer-right-group">
         <div className="footer-right-1">
           <p>COMPANY</p>
-          <a>About Us</a>
-          <a>Careers</a>
+          <div className="footer__clickables-1">
+            <a href="#">About Us</a>
+            <a href="#">Careers</a>
+          </div>
         </div>
         <div className="footer-right-2">
           <p>SUPPORT</p>
-          <div className-="footer__clickables">
-            <a>Track Orders</a>
-            <a>Delivery</a>
-            <a>Returns and Replacements</a>
-            <a>FAQ</a>
+          <div className="footer__clickables-2">
+            <a href="#">Track Orders</a>
+            <a href="#">Delivery</a>
+            <a href="#">Returns and Replacements</a>
+            <a href="#">FAQ</a>
           </div>
         </div>
         <div className="footer-right-3">
           <p>CONTACT</p>
-          <a>Chat Now</a>
-          <a>Call Us</a>
+          <div className="footer__clickables-3">
+            <a href="#">Chat Now</a>
+            <a href="#">Call Us</a>
+          </div>
         </div>
       </div>
       <div className="social-media">
-        <a>facebook</a>
-        <a>twitter</a>
-        <a>linkedin</a>
-        <a>pinterest</a>
+        <a href="#">facebook</a>
+        <a href="#">twitter</a>
+        <a href="#">linkedin</a>
+        <a href="#">pinterest</a>
       </div>
     </div>
   );

@@ -18,7 +18,7 @@ const getUser = () => {
             console.log("remove token")
             localStorage.removeItem("token")
           } else {
-            dispatch(loginUser(data.user.data.attributes))
+            // dispatch(loginUser(data.user.data.attributes))
           }
         })
     }

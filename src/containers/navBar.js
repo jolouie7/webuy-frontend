@@ -1,32 +1,69 @@
-import React from 'react'
-import mainLogo from "../../src/images/logo192.png"
+import React, { Component } from 'react'
+import mainLogo from "../../src/images/logo.png"
 import "../styles/NavBarStyle.scss"
+import { connect } from 'react-redux';
+import { Link, withRouter } from "react-router-dom";
+import { compose } from "redux";
+import logout from "../actions/logout";
 
-export default function navBar() {
-  return (
-    <div className="navbar__container">
-      <div className="navbar__img">
-        <img src={mainLogo} alt="main logo" />
-      </div>
-      <div className="navbar__search">
-        <input type="text" name="search" />
-      </div>
-      <div className="navbar__buttons">
-        <div className="navbar__login">
-          <a href="#">LOGIN</a>
+class NavBar extends Component {
+  handleClick = event => {
+    event.preventDefault();
+    // Remove the token from localStorage
+    localStorage.removeItem("token");
+    // Remove the user object from the Redux store
+    // debugger
+    this.props.logout(this.props.history);
+    // console.log(this.props.history)
+  };
+
+  // {Object.keys(this.props.currentUser).length !== 0 ? (
+  //         <button onClick={this.handleClick}>Log Out</button>
+  //       ) : null}
+
+  render() {
+    // console.log(this.props.currentUser)
+    return (
+      <div className="navbar__container">
+        <div className="navbar__img">
+          <img src={mainLogo} alt="main logo" />
         </div>
-        <div className="navbar__orders">
-          <a href="#">MY ORDERS</a>
+        <div className="navbar__search">
+          <input type="text" name="search" />
         </div>
-        <div className="navbar__cart">
-          <a href="#">CART</a>
+        <div className="navbar__buttons">
+          <div className="navbar__login">
+            {/* { this.props.currentUser.name ? <p> Hi, {this.props.currentUser.name}</p> : <Link to="/signin">SignIn</Link> } */}
+            {this.props.currentUser.name ? (
+              // <Link onCLick={this.handleClick} to="/signin">SignOut</Link>
+              <button onClick={this.handleClick}>Log Out</button>
+            ) : (
+              <Link to="/signin">SignIn</Link>
+            )}
+            {/* <a href="/signin">LOGIN</a> */}
+          </div>
+          <div className="navbar__orders">
+            <a href="#">MY ORDERS</a>
+          </div>
+          <div className="navbar__cart">
+            <a href="#">CART</a>
+          </div>
         </div>
       </div>
-    </div>
-  );
+    );
+  }
 }
 
+const mapStateToProps = state => ({
+  currentUser: state.currentUser
+});
 
+const mapDispatchToProps = dispatch => ({
+  logout: history => dispatch(logout(history))
+})
+
+// export default connect(mapStateToProps, mapDispatchToProps)(NavBar);
+export default compose(withRouter,connect(mapStateToProps, mapDispatchToProps))(NavBar);
 
 // ---------------------- Material UI ----------------------------------------
 // import React from "react";

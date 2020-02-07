@@ -11,10 +11,10 @@ class HomePage extends Component {
     console.log(this.props.currentUser);
     return (
       <div>
-        { this.props.currentUser.name ? <p> Hi, {this.props.currentUser.name}</p> : <Link to="/signin">SignIn</Link> }
+        {/* { this.props.currentUser.name ? <p> Hi, {this.props.currentUser.name}</p> : <Link to="/signin">SignIn</Link> } */}
         {/* <p> Hi, {this.props.currentUser.name}</p> */}
         {/* {console.log(this.props.currentUser)} */}
-                <div id="main-page">
+        <div id="main-page">
           <ItemDeals />
           <ItemCarousel />
           <hr />
@@ -23,7 +23,6 @@ class HomePage extends Component {
           <ItemCarousel />
           <hr />
           <ItemCarousel />
-          
         </div>
       </div>
     );

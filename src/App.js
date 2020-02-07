@@ -8,6 +8,8 @@ import SignUp from "./components/signUp";
 import SignIn from "./components/signIn";
 import HomePage from "./components/HomePage";
 import getUser from "./actions/getUser"
+import getProducts from "./actions/getProducts"
+import getCategories from "./actions/getCategories"
 import logout from "./actions/logout"
 import NavBar from "./containers/navBar";
 import SignOut from "./components/signOut"
@@ -21,6 +23,9 @@ class App extends Component {
 
   componentDidMount() {
     this.props.getUser();
+    this.props.getProducts();
+    this.props.getCategories();
+    // this.props.getItems(); // Get all the items from the backend, map through them and render them onto the page
   }
 
   // handleClick = () => {
@@ -45,32 +50,37 @@ class App extends Component {
   //     .then(data => console.log(data));
   // }
 
-  // This handleClick is for logging out. Maybe change the name of this event handler
-  handleClick = event => {
-    event.preventDefault();
-    // Remove the token from localStorage
-    localStorage.removeItem("token");
-    // Remove the user object from the Redux store
-    // debugger
-    this.props.logout(this.props.history);
-    console.log(this.props.history)
-  };
+  // -------------------------This handleClick is for logging out. Maybe change the name of this event handler------------------
+  // handleClick = event => {
+  //   event.preventDefault();
+  //   // Remove the token from localStorage
+  //   localStorage.removeItem("token");
+  //   // Remove the user object from the Redux store
+  //   // debugger
+  //   this.props.logout(this.props.history);
+  //   // console.log(this.props.history)
+  // };
 
   render() {
     return (
       <div>
         {/* <Route render={props => <NavBar {...props}/>} /> */}
-        {/* <NavBar /> */}
+        {<NavBar />}
+        {/* {Object.keys(this.props.currentUser).length !== 0 ? <NavBar /> : null} */}
         <Switch>
           <Route exact path="/" render={props => <HomePage {...props} />} />
           <Route exact path="/signup" render={props => <SignUp {...props} />} />
-          <Route exact path="/signin" render={props => <SignIn {...props} />} />
+          <switch>
+            <Route exact path="/signin" render={props => <SignIn {...props} />} />
+          </switch>
         </Switch>
+        {/* when a user is logged in, the footer will show, else it won't show */}
+        {/* {Object.keys(this.props.currentUser).length !== 0 ? <Footer /> : null} */}
         <Footer />
         {/* Place this code below somewhere instead of App.js */}
-        {Object.keys(this.props.currentUser).length !== 0 ? (
+        {/* {Object.keys(this.props.currentUser).length !== 0 ? (
           <button onClick={this.handleClick}>Log Out</button>
-        ) : null}
+        ) : null} */}
         {/* <SignOut onClick={this.handleClick}/> */}
       </div>
     );
@@ -83,6 +93,8 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   getUser: () => dispatch(getUser()),
+  getProducts: () => dispatch(getProducts()),
+  getCategories: () => dispatch(getCategories()),
   logout: (history) => dispatch(logout(history))
 });
 

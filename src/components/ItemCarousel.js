@@ -1,40 +1,12 @@
-import React from 'react'
+import React, { Component } from 'react'
 import "../styles/ItemCarousel.scss"
 import "../images/logo192.png";
+import { connect } from "react-redux";
 
-export default function ItemCarousel() {
+class ItemCarousel extends Component {
+  render () {
+
   return (
-    // <div>
-    //     <i>left-arrow</i>
-    //     <p>Catagory</p>
-    //   <div>
-    //     <a href="#">
-    //       <img src="logo512.png" alt="product" />
-    //     </a>
-    //   </div>
-    //   <div>
-    //     <a href="#">
-    //       <img src="logo512.png" alt="product" />
-    //     </a>
-    //   </div>
-    //   <div>
-    //     <a href="#">
-    //       <img src="logo512.png" alt="product" />
-    //     </a>
-    //   </div>
-    //   <div>
-    //     <a href="#">
-    //       <img src="logo512.png" alt="product" />
-    //     </a>
-    //   </div>
-    //   <div>
-    //     <a href="#">
-    //       <img src="logo512.png" alt="product" />
-    //     </a>
-    //   </div>
-    //   <a>See All</a>
-    //   <i>right-arrow</i>
-    // </div>
     <div className="main-container">
       <div className="carousel__category">
         <div>Electronics</div>
@@ -48,7 +20,7 @@ export default function ItemCarousel() {
               focusable="false"
               data-prefix="fas"
               data-icon="angle-left"
-              class="svg-inline--fa fa-angle-left fa-w-8"
+              className="svg-inline--fa fa-angle-left fa-w-8"
               role="img"
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 256 512"
@@ -60,6 +32,7 @@ export default function ItemCarousel() {
             </svg>
           </a>
         </div>
+        {/* { this.state.products.map(() => {}) } */}
         <div className="grid-item">
           <a href="#">
             <img src="logo512.png" alt="product" />
@@ -102,7 +75,7 @@ export default function ItemCarousel() {
               focusable="false"
               data-prefix="fas"
               data-icon="angle-right"
-              class="svg-inline--fa fa-angle-right fa-w-8"
+              className="svg-inline--fa fa-angle-right fa-w-8"
               role="img"
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 256 512"
@@ -117,4 +90,13 @@ export default function ItemCarousel() {
       </div>
     </div>
   );
+      }
 }
+
+const mapStateToProps = state => ({
+  catagories: state.catagories,
+  products: state.products
+});
+
+// export default ItemCarousel;
+export default connect(mapStateToProps)(ItemCarousel);
