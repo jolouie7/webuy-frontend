@@ -2,15 +2,21 @@ import React, { Component } from 'react'
 import "../styles/ItemCarousel.scss"
 import "../images/logo192.png";
 import { connect } from "react-redux";
+import ItemCard from "../components/ItemCard"
 
+//This compoenet should be a container and each item should be a card
 class ItemCarousel extends Component {
   render () {
-
+    const key = Object.keys(this.props.category)
+    console.log(this.props.category)
   return (
     <div className="main-container">
       <div className="carousel__category">
-        <div>Electronics</div>
-        <a src="#" alt="see all">See All</a>
+        {/* This is the category name */}
+        <div>{key[0]}</div>
+        <a src="#" alt="see all">
+          See All
+        </a>
       </div>
       <div className="grid-container">
         <div className="grid-item">
@@ -32,8 +38,11 @@ class ItemCarousel extends Component {
             </svg>
           </a>
         </div>
-        {/* { this.state.products.map(() => {}) } */}
-        <div className="grid-item">
+        {/* map through category and render cards */}
+        {this.props.category[key[0]].slice(0, 5).map(item => (
+          <ItemCard itemName={item.name} itemPrice={item.price} />
+        ))}
+        {/* <div className="grid-item">
           <a href="#">
             <img src="logo512.png" alt="product" />
             <p>Item</p>
@@ -67,7 +76,7 @@ class ItemCarousel extends Component {
             <p>Item</p>
             <p>Price</p>
           </a>
-        </div>
+        </div> */}
         <div className="grid-item">
           <a href="#">
             <svg
@@ -94,7 +103,7 @@ class ItemCarousel extends Component {
 }
 
 const mapStateToProps = state => ({
-  catagories: state.catagories,
+  // categories: state.categories,
   products: state.products
 });
 

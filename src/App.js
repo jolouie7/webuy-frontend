@@ -41,10 +41,12 @@ class App extends Component {
   // };
 
   render() {
+    console.log(this.props.categories)
     return (
       <div>
         {/* <Route render={props => <NavBar {...props}/>} /> */}
         {<NavBar />}
+        {/* {<ProductPage />} */}
         {/* {Object.keys(this.props.currentUser).length !== 0 ? <NavBar /> : null} */}
         <Switch>
           <Route exact path="/" render={props => <HomePage {...props} />} />
@@ -67,7 +69,8 @@ class App extends Component {
 }
 
 const mapStateToProps = state => ({
-  currentUser: state.currentUser
+  currentUser: state.currentUser,
+  categories: state.categories
 });
 
 const mapDispatchToProps = dispatch => ({
