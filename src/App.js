@@ -15,6 +15,7 @@ import NavBar from "./containers/navBar";
 import SignOut from "./components/signOut"
 import "./styles/App.scss"
 import Footer from "./components/Footer";
+import ProductPage from "./containers/ProductPage"
 
 class App extends Component {
   // constructor(props) {
@@ -27,28 +28,6 @@ class App extends Component {
     this.props.getCategories();
     // this.props.getItems(); // Get all the items from the backend, map through them and render them onto the page
   }
-
-  // handleClick = () => {
-  //   fetch("http://localhost:3000/users", {
-  //     method: "POST",
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //       Accept: "application/json"
-  //     },
-  //     body: JSON.stringify({
-  //       user: {
-  //         name: "willy",
-  //         username: "willy1119",
-  //         email: "willy111@gmail.com",
-  //         bio: "I love life",
-  //         password: "1Wqe93aw",
-  //         password_confirmation: "1Wqe93aw"
-  //       }
-  //     })
-  //   })
-  //     .then(res => res.json())
-  //     .then(data => console.log(data));
-  // }
 
   // -------------------------This handleClick is for logging out. Maybe change the name of this event handler------------------
   // handleClick = event => {

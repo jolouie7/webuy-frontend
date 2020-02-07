@@ -19,10 +19,31 @@ const getCategories = () => {
             localStorage.removeItem("token");
           } else {
             console.log(data);
+            // array of category products
+            // console.log(data.map(item => item.products));
+            const array = [];
+            for( let i = 0; i < data.length; i++){
+              let obj = {};
+              obj[data[i].name] = data[i].products
+              array.push(obj)
+            }
+            // const categoryProducts = data.map(item => item.name)
+            // category names
+            // console.log(data.map(item => item.name));
+            // const categoryNames = data.map(item => item.name)
+            // console.log(categoryNames)
+            
+            // for(let name of categoryNames) {
+            //   array.push({
+            //     [name]: categoryProducts
+            //   });
+            // }
+            console.log(array)
             // console.log(data.data.map(category => category.attributes.name));
             // console.log(data.categories);
             // dispatch(storeCategories(data.data.map(category => category.attributes.name))); // gives me all my categories
             // dispatch(storeCategories(data.data.forEach(category => category.attributes.name))); // gives me all my categories
+            dispatch(storeCategories(array));
             // dispatch(loginUser(data.product.data.attributes));
           }
         });
