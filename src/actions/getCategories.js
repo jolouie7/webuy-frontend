@@ -1,13 +1,11 @@
 const getCategories = () => {
   return dispatch => {
     const token = localStorage.token;
-    if (token) {
       return fetch("http://localhost:3000/categories", {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
-          Accept: "application/json",
-          Authorization: `Bearer ${token}`
+          Accept: "application/json"
         }
       })
         .then(resp => resp.json())
@@ -47,7 +45,6 @@ const getCategories = () => {
             // dispatch(loginUser(data.product.data.attributes));
           }
         });
-    }
   };
 };
 

@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 
 // Find out which product was clicked and display there info
 export class ProductPage extends Component {
@@ -40,11 +41,12 @@ export class ProductPage extends Component {
             <div>Color</div>
             <div>Item Price: {item.price}</div>
             <div>Postage</div>
-            <button>Add To Cart</button>
+            <Link to="/cart_items">
+              <button>Add To Cart</button>
+            </Link>
             <button>Buy Now</button>
           </div>
         ) : null}
-        {/* {console.log(item)} */}
       </div>
     );
   }

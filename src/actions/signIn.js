@@ -1,3 +1,5 @@
+// import getProducts from "./getProducts"
+
 const signIn = (e, userInfo, history) => {
   e.preventDefault();
   return dispatch => {
@@ -28,6 +30,9 @@ const signIn = (e, userInfo, history) => {
           dispatch(loginUser(data.user.data.attributes));
         }
       })
+      // .then(() => {
+      //   getProducts();
+      // })
       .then(() => {
         history.push("/")
       })

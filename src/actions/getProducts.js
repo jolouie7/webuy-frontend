@@ -1,13 +1,11 @@
 const getProducts = () => {
   return dispatch => {
     const token = localStorage.token;
-    if (token) {
       return fetch("http://localhost:3000/products", {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
-          Accept: "application/json",
-          Authorization: `Bearer ${token}`
+          Accept: "application/json"
         }
       })
         .then(resp => resp.json())
@@ -24,7 +22,6 @@ const getProducts = () => {
             // dispatch(loginUser(data.product.data.attributes));
           }
         });
-    }
   };
 };
 

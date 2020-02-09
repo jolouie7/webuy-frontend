@@ -7,6 +7,7 @@ import { compose } from "redux";
 import logout from "../actions/logout";
 
 class NavBar extends Component {
+
   handleClick = event => {
     event.preventDefault();
     // Remove the token from localStorage
@@ -26,7 +27,9 @@ class NavBar extends Component {
     return (
       <div className="navbar__container">
         <div className="navbar__img">
-          <img src={mainLogo} alt="main logo" />
+          <Link to={`/`}>
+            <img src={mainLogo} alt="main logo" />
+          </Link>
         </div>
         <div className="navbar__search">
           <input type="text" name="search" />
@@ -46,7 +49,9 @@ class NavBar extends Component {
             <a href="#">MY ORDERS</a>
           </div>
           <div className="navbar__cart">
-            <a href="#">CART</a>
+            <Link to="/cart_items">
+              <button href="#">CART</button>
+            </Link>
           </div>
         </div>
       </div>
