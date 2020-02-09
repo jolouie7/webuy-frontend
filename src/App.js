@@ -16,6 +16,7 @@ import SignOut from "./components/signOut"
 import "./styles/App.scss"
 import Footer from "./components/Footer";
 import ProductPage from "./containers/ProductPage"
+import ItemCarousel from './components/ItemCarousel';
 
 class App extends Component {
   // constructor(props) {
@@ -50,7 +51,10 @@ class App extends Component {
         {/* {Object.keys(this.props.currentUser).length !== 0 ? <NavBar /> : null} */}
         <Switch>
           <Route exact path="/" render={props => <HomePage {...props} />} />
+          <Route exact path={`/products/:id`} render={routerProps => (<ProductPage {...routerProps} />)} />
+          {/* <Route exact path="/" render={routerProps => <HomePage {...routerProps} />} /> */}
           <Route exact path="/signup" render={props => <SignUp {...props} />} />
+          <Route exact path="/products" render={props => <ItemCarousel {...props} />} />
           <switch>
             <Route exact path="/signin" render={props => <SignIn {...props} />} />
           </switch>

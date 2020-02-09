@@ -18,7 +18,7 @@ const getCategories = () => {
             console.log("remove token");
             localStorage.removeItem("token");
           } else {
-            console.log(data);
+            // console.log(data);
             // array of category products
             // console.log(data.map(item => item.products));
             const array = [];

@@ -7,8 +7,8 @@ export class ItemCard extends Component {
         <div className="grid-item">
           <a href="#">
             <img src="logo512.png" alt="product" />
-            <p>{this.props.itemName}</p>
-            <p>${this.props.itemPrice}</p>
+            <p>{this.props.name}</p>
+            <p>${this.props.price}</p>
           </a>
         </div>
       </div>

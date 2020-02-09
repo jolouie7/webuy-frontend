@@ -1,8 +1,9 @@
-import React, { Component } from 'react'
-import "../styles/ItemCarousel.scss"
+import React, { Component } from 'react';
+import "../styles/ItemCarousel.scss";
 import "../images/logo192.png";
 import { connect } from "react-redux";
-import ItemCard from "../components/ItemCard"
+import ItemCard from "../components/ItemCard";
+import { Link, Route } from "react-router-dom";
 
 //This compoenet should be a container and each item should be a card
 class ItemCarousel extends Component {
@@ -39,44 +40,23 @@ class ItemCarousel extends Component {
           </a>
         </div>
         {/* map through category and render cards */}
-        {this.props.category[key[0]].slice(0, 5).map(item => (
-          <ItemCard itemName={item.name} itemPrice={item.price} />
-        ))}
-        {/* <div className="grid-item">
-          <a href="#">
-            <img src="logo512.png" alt="product" />
-            <p>Item</p>
-            <p>Price</p>
-          </a>
-        </div>
-        <div className="grid-item">
-          <a href="#">
-            <img src="logo512.png" alt="product" />
-            <p>Item</p>
-            <p>Price</p>
-          </a>
-        </div>
-        <div className="grid-item">
-          <a href="#">
-            <img src="logo512.png" alt="product" />
-            <p>Item</p>
-            <p>Price</p>
-          </a>
-        </div>
-        <div className="grid-item">
-          <a href="#">
-            <img src="logo512.png" alt="product" />
-            <p>Item</p>
-            <p>Price</p>
-          </a>
-        </div>
-        <div className="grid-item">
-          <a href="#">
-            <img src="logo512.png" alt="product" />
-            <p>Item</p>
-            <p>Price</p>
-          </a>
-        </div> */}
+        {/* {this.props.category[key[0]].slice(0, 5).map((item, id) => (
+          <ItemCard key={id} itemName={item.name} itemPrice={item.price} />
+        ))} */}
+        
+        {Object.keys(this.props.category).length !== 0
+        // slice to get only the first 5 products of the category obj
+          ? this.props.category[key[0]].slice(0, 5).map((product) => {
+              return (
+                <div id="products">
+                  <Link key={product.id} to={`/products/${product.id}`}>
+                    <ItemCard {...product} />
+                  </Link>
+                </div>
+              );
+            })
+          : null}
+
         <div className="grid-item">
           <a href="#">
             <svg
