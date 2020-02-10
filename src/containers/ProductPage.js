@@ -38,8 +38,6 @@ export class ProductPage extends Component {
       // product => product.id == parseInt(this.props.match.params.id)
       product => product.id == this.props.match.params.id
     );
-
-    const quantity = Math.floor(Math.random() * 11);
     return (
       <div>
         {/* side imgs */}
@@ -56,12 +54,11 @@ export class ProductPage extends Component {
             <div>Item Reviews</div>
             <div>Description: {item.description}</div>
             <div>Different Item Colors</div>
-            <div>Quantity: {quantity}</div>
             <div>Order Box</div>
-            <div>Quantity: {quantity}</div>
+            <div>Quantity: {item.quantity}</div>
             <div>Color</div>
             <div>Item Price: {item.price}</div>
-            <div>Postage</div>
+            <div>Postage: FREE</div>
             {/* <button onClick={console.log("hit", () => this.props.addToCart(item))}>Add To Cart</button> */}
             {/* make this an anonymous function, so it won't get fired when mounted */}
             <button onClick={() => {this.handleClick(item)}}>Add To Cart</button>
