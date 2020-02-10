@@ -17,6 +17,7 @@ import "./styles/App.scss"
 import Footer from "./components/Footer";
 import ProductPage from "./containers/ProductPage"
 import ItemCarousel from './components/ItemCarousel';
+import Cart from "./containers/Cart"
 
 class App extends Component {
   // constructor(props) {
@@ -42,7 +43,6 @@ class App extends Component {
   // };
 
   render() {
-    console.log(this.props.categories)
     return (
       <div>
         {/* <Route render={props => <NavBar {...props}/>} /> */}
@@ -55,6 +55,7 @@ class App extends Component {
           {/* <Route exact path="/" render={routerProps => <HomePage {...routerProps} />} /> */}
           <Route exact path="/signup" render={props => <SignUp {...props} />} />
           <Route exact path="/products" render={props => <ItemCarousel {...props} />} />
+          <Route exact path="/cart_items" render={props => <Cart {...props} />} />
           <switch>
             <Route exact path="/signin" render={props => <SignIn {...props} />} />
           </switch>

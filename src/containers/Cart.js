@@ -14,9 +14,20 @@ export class Cart extends Component {
     // FOR CHECKOUT
     // when the user clicks checkout make a post request to the backend,
     // store the items of a single order to the backend
+
+    // const product = JSON.parse(localStorage.getItem("cartArray"));
+    let product = localStorage.getItem("cartArray");
+    // console.log(JSON.parse(product))
+    product = JSON.parse(product);
+    console.log(product[0])
     return (
       <div>
-        Cart
+        {localStorage.getItem("cartArray") ? product.map(item => 
+        <div>
+          <h1>{item.name}</h1>
+          <h1>{item.price}</h1>
+        </div>) 
+        : null}
       </div>
     )
   }
