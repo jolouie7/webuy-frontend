@@ -6,8 +6,7 @@ import { Link } from "react-router-dom";
 class SignIn extends Component {
   state = {
     username: "",
-    password: "",
-    password_confirmation: ""
+    password: ""
   };
 
   handleChange = event => {
@@ -45,15 +44,6 @@ class SignIn extends Component {
             type="password"
             name="password"
             value={this.state.password}
-            onChange={this.handleChange}
-          />
-          <br />
-
-          <label>Password Conformation</label>
-          <input
-            type="password"
-            name="password_confirmation"
-            value={this.state.password_confirmation}
             onChange={this.handleChange}
           />
           <br />

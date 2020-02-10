@@ -10,7 +10,6 @@ export class Cart extends Component {
     // OTHER TASKS
     // get the total of all the items in localstorage
     // get the total number of items in localstorage
-    //
 
     // FOR CHECKOUT
     // when the user clicks checkout make a post request to the backend,
