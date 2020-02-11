@@ -13,9 +13,7 @@ class NavBar extends Component {
     // Remove the token from localStorage
     localStorage.removeItem("token");
     // Remove the user object from the Redux store
-    // debugger
     this.props.logout(this.props.history);
-    // console.log(this.props.history)
   };
 
   // {Object.keys(this.props.currentUser).length !== 0 ? (
@@ -32,7 +30,7 @@ class NavBar extends Component {
           </Link>
         </div>
         <div className="navbar__search">
-          <input type="text" name="search" />
+          <input type="text" name="search" placeholder="Doesn't Work"/>
         </div>
         <div className="navbar__buttons">
           <div className="navbar__login">
@@ -41,7 +39,7 @@ class NavBar extends Component {
               // <Link onCLick={this.handleClick} to="/signin">SignOut</Link>
               <button onClick={this.handleClick}>Log Out</button>
             ) : (
-              <Link to="/signin">SignIn</Link>
+              <Link to="/signin">SIGNIN</Link>
             )}
             {/* <a href="/signin">LOGIN</a> */}
           </div>

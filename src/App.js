@@ -17,7 +17,8 @@ import "./styles/App.scss"
 import Footer from "./components/Footer";
 import ProductPage from "./containers/ProductPage"
 import ItemCarousel from './components/ItemCarousel';
-import Cart from "./containers/Cart"
+import Cart from "./components/Cart"
+import CheckoutProcess1 from "./containers/CheckoutProcess1"
 
 class App extends Component {
   // constructor(props) {
@@ -56,6 +57,7 @@ class App extends Component {
           <Route exact path="/signup" render={props => <SignUp {...props} />} />
           <Route exact path="/products" render={props => <ItemCarousel {...props} />} />
           <Route exact path="/cart_items" render={props => <Cart {...props} />} />
+          <Route exact path="/checkout" render={props => <CheckoutProcess1 {...props} />} />
           <switch>
             <Route exact path="/signin" render={props => <SignIn {...props} />} />
           </switch>

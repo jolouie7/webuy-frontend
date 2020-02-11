@@ -1,6 +1,19 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import SetTotal from "../actions/SetTotal"
 
 export class Cart extends Component {
+  componentDidMount() {
+    //helper to count the total cost of the items
+    const countTotal = (total, num) => {
+      return total + num;
+    }
+
+    let total = JSON.parse(localStorage.getItem("cartArray")).map(item => item.price).reduce(countTotal);
+    this.props.setTotal(total)
+    console.log(total);
+  }
+
   handleClick = (e) => {
     // ------------------- Deleting an item from localstorage ------------------------
     // get the array from localstorage, change the datatype from a string to a json obj
@@ -23,6 +36,10 @@ export class Cart extends Component {
     this.props.history.push("/cart_items");
   }
 
+  handleCheckout = () => {
+    this.props.history.push("/checkout");
+  }
+
   render() {
     // when user clicks the add item to card button, add to localstorage
     // figure out a way to get items rendered on the cart page. Find the specfic item that the user added to cart
@@ -42,26 +59,39 @@ export class Cart extends Component {
     // console.log(JSON.parse(product))
     product = JSON.parse(product);
     // console.log(product[0])
-
+    
     return (
       <div>
         <h1>Your Cart</h1>
-        {localStorage.getItem("cartArray") ? product.map((item, id) =>
-        <div>
-          <h1>{item.name}</h1>
-          <h1>${item.price}</h1>
-          <h1>{item.image}</h1>
-          <button>+</button>
-          <h3>Quantity: {item.quantity}</h3>
-          <button>-</button>
-          <button onClick={this.handleClick} value={item.id}>Delete</button>
-        </div>)
-        : null}
+        {localStorage.getItem("cartArray")
+          ? product.map((item, id) => (
+              <div>
+                <h1>{item.name}</h1>
+                <h1>${item.price}</h1>
+                <h1>{item.image}</h1>
+                <button>+</button>
+                <h3>Quantity: {item.quantity}</h3>
+                <button>-</button>
+                <button onClick={this.handleClick} value={item.id}>
+                  Delete
+                </button>
+              </div>
+            ))
+          : null}
         <br />
-        <button>Checkout</button>
+        <h1>Total: ${this.props.total}</h1>
+        <button onClick={this.handleCheckout}>Checkout</button>
       </div>
-    )
+    );
   }
 }
 
-export default Cart
+const mapStateToProps = state => ({
+  total: state.total
+});
+
+const mapDispatchToProps = dispatch => ({
+  setTotal: amount => dispatch(SetTotal(amount))
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Cart)
