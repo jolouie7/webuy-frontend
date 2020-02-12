@@ -29,6 +29,10 @@ class CheckoutForm extends Component {
         complete: true
       })
     });
+    // localStorage.setItem("cartArray", []);
+    let existing = localStorage.getItem("cartArray");
+    existing = existing === null ? [] : JSON.parse(existing);
+    localStorage.setItem("cartArray", JSON.stringify(existing));
   };
 
   // check to see if theres a currentUser
@@ -60,7 +64,7 @@ class CheckoutForm extends Component {
     }
     // this.props.payForItems();
     //reset cart
-    localStorage.setItem("cartArray", []);
+    localStorage.setItem("cartArray", JSON.stringify([]));
   };
 
   render() {

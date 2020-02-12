@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 // import { userPostFetch } from "../redux/actions";
 import signUp from "../actions/signUp";
-import "../styles/SignUpStyle.css"
+import "../styles/SignUpStyle.scss"
 
 class Signup extends Component {
   state = {

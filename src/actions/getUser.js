@@ -18,7 +18,7 @@ const getUser = () => {
             console.log("remove token")
             localStorage.removeItem("token")
           } else {
-            // dispatch(loginUser(data.user.data.attributes))
+            dispatch(loginUser(data.user.data.attributes))
           }
         })
     }
@@ -28,7 +28,6 @@ const getUser = () => {
 // move to signIn action file
 const loginUser = userObj => ({
   type: "SIGNIN_USER",
-  // payload: userObj.data.attributes
   payload: userObj
 });
 

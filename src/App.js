@@ -40,6 +40,8 @@ class App extends Component {
     let existing = localStorage.getItem("cartArray");
     existing = existing === null ? [] : JSON.parse(existing);
     localStorage.setItem("cartArray", JSON.stringify(existing));
+
+    //check to see if user is logged in
   }
 
   // -------------------------This handleClick is for logging out. Maybe change the name of this event handler------------------
