@@ -5,7 +5,7 @@
 const setTotal = (amount) => {
   console.log(amount)
   return {
-    type: "SET_TOTAL",
+    type: "ADD_TOTAL",
     payload: amount
   }
 }

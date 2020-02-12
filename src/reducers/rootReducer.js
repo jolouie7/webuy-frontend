@@ -18,7 +18,9 @@ const rootReducer = (state = initialState, action) => {
       return {...state, products: action.payload}
     case "GET_ALL_CATEGORIES":
       return {...state, categories: action.payload}
-    case "SET_TOTAL":
+    case "ADD_TOTAL":
+      return {...state, total: action.payload}
+    case "SUBTRACT_TOTAL":
       console.log(action.payload, "from reducer")
       return {...state, total: action.payload} // Adding a new item might overide existing cart items
     default:

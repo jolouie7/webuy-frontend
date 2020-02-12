@@ -1,6 +1,6 @@
 const getProducts = () => {
   return dispatch => {
-    const token = localStorage.token;
+    // const token = localStorage.token;
       return fetch("http://localhost:3000/products", {
         method: "GET",
         headers: {
@@ -13,11 +13,11 @@ const getProducts = () => {
           if (data.message) {
             // An error will occur if the token is invalid.
             // If this happens, you may want to remove the invalid token.
-            console.log("remove token");
+            // console.log("remove token");
             localStorage.removeItem("token");
           } else {
             // console.log(data)
-            console.log(data.products) // an array of objs
+            // console.log(data.products) // an array of objs
             dispatch(storeProducts(data.products))
             // dispatch(loginUser(data.product.data.attributes));
           }

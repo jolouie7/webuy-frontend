@@ -1,6 +1,6 @@
 const getCategories = () => {
   return dispatch => {
-    const token = localStorage.token;
+    // const token = localStorage.token;
       return fetch("http://localhost:3000/categories", {
         method: "GET",
         headers: {
@@ -13,7 +13,7 @@ const getCategories = () => {
           if (data.message) {
             // An error will occur if the token is invalid.
             // If this happens, you may want to remove the invalid token.
-            console.log("remove token");
+            // console.log("remove token");
             localStorage.removeItem("token");
           } else {
             // console.log(data);
@@ -25,22 +25,9 @@ const getCategories = () => {
               obj[data[i].name] = data[i].products
               array.push(obj)
             }
-            // const categoryProducts = data.map(item => item.name)
-            // category names
-            // console.log(data.map(item => item.name));
-            // const categoryNames = data.map(item => item.name)
-            // console.log(categoryNames)
-            
-            // for(let name of categoryNames) {
-            //   array.push({
-            //     [name]: categoryProducts
-            //   });
-            // }
-            console.log(array)
-            // console.log(data.data.map(category => category.attributes.name));
-            // console.log(data.categories);
-            // dispatch(storeCategories(data.data.map(category => category.attributes.name))); // gives me all my categories
-            // dispatch(storeCategories(data.data.forEach(category => category.attributes.name))); // gives me all my categories
+
+            // console.log(array)
+
             dispatch(storeCategories(array));
             // dispatch(loginUser(data.product.data.attributes));
           }
