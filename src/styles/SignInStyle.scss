@@ -1,0 +1,15 @@
+.signin__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+
+  .inner__container {
+    padding: 0 0 100px 0;
+    display: flex;
+    // justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    // text-align: left;
+  }
+}

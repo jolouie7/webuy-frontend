@@ -19,7 +19,7 @@ class HomePage extends Component {
         {/* {console.log(this.props.currentUser)} */}
         <div id="main-page">
           <ItemDeals />
-          {this.props.categories.map(category => (
+          {this.props.categories.slice(0, 4).map(category => (
             <ItemCarousel category={category} />
           ))}
         </div>

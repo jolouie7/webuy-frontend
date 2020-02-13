@@ -15,7 +15,7 @@
   // grid-template-rows: repeat(7, 1fr);
 
   // grid-auto-rows: 100px;
-  padding-top: 10%;
+  padding-top: 5%;
   p, a {
     color: white;
   }
@@ -91,6 +91,8 @@
 
   input {
     width: 200px;
+    outline: none;
+    border-radius: 3px;
   }
   p {
     margin: 15px 0;
