@@ -35,4 +35,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-bottom: 3rem;
+  input {
+    background-color: #1F7A8F;
+    color: white;
+    padding: 10px 25px 10px 25px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
 }
