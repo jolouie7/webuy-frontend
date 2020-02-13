@@ -14,7 +14,7 @@ class ItemCarousel extends Component {
     <div className="main-container">
       <div className="carousel__category">
         {/* This is the category name */}
-        <div>{key[0]}</div>
+        <div className={"carousel__category-item"}>{key[0]}</div>
         <a src="#" alt="see all">
           See All
         </a>

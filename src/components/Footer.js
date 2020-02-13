@@ -5,10 +5,12 @@ export default function Footer() {
   return (
     <div className="footer-container">
       <div className="footer-left">
-        <p>SUBSCRIBE TO NEWSLETTERS</p>
-        <p>Username/Email Address</p>
-        <input />
-        <p>SIGN UP</p>
+        <div className="footer-left-container">
+          <p>SUBSCRIBE TO NEWSLETTERS</p>
+          <p>Username/Email Address</p>
+          <input />
+          <p>SIGN UP</p>
+        </div>
       </div>
       <div className="footer-right-group">
         <div className="footer-right-1">
@@ -36,10 +38,10 @@ export default function Footer() {
         </div>
       </div>
       <div className="social-media">
-        <a href="#">facebook</a>
-        <a href="#">twitter</a>
-        <a href="#">linkedin</a>
-        <a href="#">pinterest</a>
+        <a href="#">Facebook</a>
+        <a href="#">Twitter</a>
+        <a href="#">Linkedin</a>
+        <a href="#">Pinterest</a>
       </div>
     </div>
   );
