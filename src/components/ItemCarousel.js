@@ -48,10 +48,8 @@ class ItemCarousel extends Component {
         // slice to get only the first 5 products of the category obj
           ? this.props.category[key[0]].slice(0, 5).map((product) => {
               return (
-                <div id="products">
-                  <Link key={product.id} to={`/products/${product.id}`}>
-                    <ItemCard {...product} />
-                  </Link>
+                <div id="product">
+                  <ItemCard {...product} />
                 </div>
               );
             })

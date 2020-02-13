@@ -17,17 +17,28 @@
   }
 
   .navbar__search {
-  //   float: none;
-  // position: absolute;
-  // top: 50%;
-  // left: 50%;
-  margin-left: auto;
-  margin-right: auto;
-  // width: 1000px;
-  // border: 5px solid blue;
-  input {
-    width: 500px;
+    //   float: none;
+    // position: absolute;
+    // top: 50%;
+    // left: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    // width: 1000px;
+    // border: 5px solid blue;
+    input {
+      width: 500px;
+    }
   }
+
+  .navbar__button {
+    padding: 0;
+    border: none;
+    background: none;
+    font-size: 14px;
+    color: #2C494D;
+    font-weight: 600;
+    outline: none;
+    cursor: pointer;
   }
 }
 

@@ -30,25 +30,33 @@ class NavBar extends Component {
           </Link>
         </div>
         <div className="navbar__search">
-          <input type="text" name="search" placeholder="Doesn't Work"/>
+          <input type="text" name="search" placeholder="Doesn't Work" />
         </div>
         <div className="navbar__buttons">
           <div className="navbar__login">
             {/* { this.props.currentUser.name ? <p> Hi, {this.props.currentUser.name}</p> : <Link to="/signin">SignIn</Link> } */}
             {this.props.currentUser.name ? (
               // <Link onCLick={this.handleClick} to="/signin">SignOut</Link>
-              <button onClick={this.handleClick}>Log Out</button>
+              <button onClick={this.handleClick} className={"navbar__button"}>
+                LOGIN
+              </button>
             ) : (
-              <Link to="/signin">SIGNIN</Link>
+              <Link to="/signin">
+                <button className={"navbar__button"}>SIGN IN</button>
+              </Link>
             )}
             {/* <a href="/signin">LOGIN</a> */}
           </div>
           <div className="navbar__orders">
-            <a href="#">MY ORDERS</a>
+            <button href="#" className={"navbar__button"}>
+              MY ORDERS
+            </button>
           </div>
           <div className="navbar__cart">
             <Link to="/cart_items">
-              <button href="#">CART</button>
+              <button href="#" className={"navbar__button"}>
+                CART
+              </button>
             </Link>
           </div>
         </div>
