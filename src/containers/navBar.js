@@ -30,7 +30,7 @@ class NavBar extends Component {
           </Link>
         </div>
         <div className="navbar__search">
-          <input type="text" name="search" placeholder="Doesn't Work" />
+          <input type="text" name="search"/>
         </div>
         <div className="navbar__buttons">
           <div className="navbar__login">

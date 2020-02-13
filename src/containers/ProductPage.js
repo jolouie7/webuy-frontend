@@ -39,6 +39,8 @@ export class ProductPage extends Component {
       // product => product.id == parseInt(this.props.match.params.id)
       product => product.id == this.props.match.params.id
     );
+    console.log(item)
+    console.log(this.props)
     return (
       <div className="main__container">
         {/* side imgs */}
@@ -46,38 +48,44 @@ export class ProductPage extends Component {
         <img src="/logo192.png" />
         <img src="/logo192.png" /> */}
         {/* main img */}
-        <img src="/logo192.png" />
         {Object.keys(this.props.products).length !== 0 ? (
           <div className="item__container">
-            <div className="product-details__container">
-              <h1 className="product__name">{item.name}</h1>
-              <div className="product__price">${item.price}</div>
-              <div className="product__rating">Rating: {item.rating}</div>
-              <div className="product__reviews">Item Reviews</div>
-              <div className="product__description">
-                Description: {item.description}
+            <img src={item.image} alt="product" />
+            <div>
+              <div className="product-details__container">
+                <h1 className="product__name">{item.name}</h1>
+                <div className="product__price">${item.price}</div>
+                <div className="product__rating">Rating: {item.rating}</div>
+                <div className="product__reviews">Item Reviews</div>
+                <div className="product__description">
+                  Description: {item.description}
+                </div>
+                <div className="product__colors">Different Item Colors</div>
+                <div className="product__quantity">
+                  Quantity: {item.quantity}
+                </div>
               </div>
-              <div className="product__colors">Different Item Colors</div>
-              <div className="product__quantity">Quantity: {item.quantity}</div>
-            </div>
-            <div className="order-box__container">
-              {/* <div className="product__order-box">Order Box</div> */}
-              <div className="product__quantity">Quantity: {item.quantity}</div>
+              <div className="order-box__container">
+                {/* --------------------Do Not delete--------------------- */}
+                {/* <div className="product__order-box">Order Box</div> */}
+                {/* <div className="product__quantity">Quantity: {item.quantity}</div>
               <div className="product__color">Color</div>
               <div className="product__price">Item Price: {item.price}</div>
-              <div>Postage: FREE</div>
+              <div>Postage: FREE</div> */}
+                {/* --------------------Do Not delete--------------------- */}
+              </div>
+              {/* <button onClick={console.log("hit", () => this.props.addToCart(item))}>Add To Cart</button> */}
+              {/* make this an anonymous function, so it won't get fired when mounted */}
+              <button
+                onClick={() => {
+                  this.handleClick(item);
+                }}
+              >
+                Add To Cart
+              </button>
             </div>
-            {/* <button onClick={console.log("hit", () => this.props.addToCart(item))}>Add To Cart</button> */}
-            {/* make this an anonymous function, so it won't get fired when mounted */}
-            <button
-              onClick={() => {
-                this.handleClick(item);
-              }}
-            >
-              Add To Cart
-            </button>
             {/* <button onClick={console.log("hit 47")}>Add To Cart</button> */}
-            <button>Buy Now</button>
+            {/* <button>Buy Now</button> */}
           </div>
         ) : null}
       </div>

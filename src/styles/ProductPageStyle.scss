@@ -2,10 +2,13 @@
   //use grid to seperate into 3 3-4columns
   display: grid;
   grid-template-columns: 1fr 2fr;
+  img {
+    width: 80%;
+  }
   .item__container {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: 1fr;
 
     button {
       height: 2rem;

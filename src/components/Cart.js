@@ -126,7 +126,7 @@ export class Cart extends Component {
                 <h1 className="item__name">{item.name}</h1>
                 <h1 className="item__price">${item.price}</h1>
                 {/* <h1 className="item__image">{item.image}</h1> */}
-                <h1 className="item__image">Image Here</h1>
+                <img className="item__image" src={item.image}></img>
                 <button>+</button>
                 <h3 className="item__quantity">Quantity: {item.quantity}</h3>
                 <button>-</button>

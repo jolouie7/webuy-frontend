@@ -1,7 +1,8 @@
 .main__container {
-  height: 80vh;
+  margin: 0 3.125rem;
+  height: 120vh;
   display: grid;
-  grid-template-rows: 1fr 4fr;
+  grid-template-rows: 1/4fr 4fr;
   grid-template-columns: 1fr;
   // grid-template-areas: "
   // cartLabel,
@@ -41,7 +42,7 @@
       justify-content: center;
     }
   }
-
+//checkout button
   .cart__checkout {
     background-color: #1F7A8F;
     color: white;

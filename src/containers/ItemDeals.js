@@ -14,7 +14,10 @@ export default function ItemDeals() {
       <div className="item-deal__group">
         <div className="grid-item">
           <h6>Selected For You</h6>
-          <img src="logo192.png" alt="selected item for you" />
+          <img
+            src="https://images.unsplash.com/photo-1577741314755-048d8525d31e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80"
+            alt="selected item for you"
+          />
           {/* <img src="" alt="select arrow" /> */}
           <svg
             aria-hidden="true"
@@ -36,7 +39,10 @@ export default function ItemDeals() {
         </div>
         <div className="grid-item">
           <h6>Todays Features</h6>
-          <img src="logo192.png" alt="todays feature items" />
+          <img
+            src="https://images.unsplash.com/photo-1491553895911-0055eca6402d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1100&q=80"
+            alt="todays feature items"
+          />
           {/* <img src="#" alt="select arrow" /> */}
           <svg
             aria-hidden="true"
@@ -58,7 +64,10 @@ export default function ItemDeals() {
         </div>
         <div className="grid-item">
           <h6>Gifts</h6>
-          <img src="logo192.png" alt="gifts" />
+          <img
+            src="https://images.unsplash.com/photo-1549465220-1a8b9238cd48?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1624&q=80"
+            alt="gifts"
+          />
           {/* <img src="#" alt="select arrow" /> */}
 
           {/* <img src="#" /> */}

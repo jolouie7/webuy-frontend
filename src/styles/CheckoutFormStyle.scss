@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
 
+h1 {
+  font-family: Helvetica, sans-serif;
+  font-size: 18px;
+}
+
 .checkout {
   p {
     margin-bottom: 2rem;
@@ -14,6 +19,7 @@
     border-radius: 5px;
     cursor: pointer;
     font-size: 14px;
+    outline: none;
   }
   .checkout__cardElement {
     width: 450px;
