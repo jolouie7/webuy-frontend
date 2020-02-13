@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { CardElement, injectStripe } from "react-stripe-elements";
 import { connect } from "react-redux";
 import { compose } from "redux";
+import "../styles/CheckoutFormStyle.scss"
 
 class CheckoutForm extends Component {
   state = {
@@ -68,15 +69,17 @@ class CheckoutForm extends Component {
   };
 
   render() {
-    console.log(this.props.total)
-    console.log(this.props.currentUser);
+    // console.log(this.props.total)
+    // console.log(this.props.currentUser);
 
     if (this.state.complete) return <h1>Purchase Complete!</h1>;
 
     return (
       <div className="checkout">
         <p>Would you like to complete the purchase?</p>
-        <CardElement />
+        <div className="checkout__cardElement">
+          <CardElement />
+        </div>
         <button onClick={this.submit}>Purchase</button>
       </div>
     );

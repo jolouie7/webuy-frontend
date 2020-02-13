@@ -1,0 +1,20 @@
+.main__container {
+  //use grid to seperate into 3 3-4columns
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  .item__container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+
+    button {
+      height: 2rem;
+      width: 8rem;
+      border-radius: 3px;
+      // :first-child {
+      //   background-color: #2C494D;
+      //   color: white;
+      // }
+    }
+  }
+}

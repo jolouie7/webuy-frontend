@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
+
+.checkout {
+  p {
+    margin-bottom: 2rem;
+    font-family: Lato, sans-serif;
+    font-size: 14px;
+  }
+  button {
+    margin-top: 2rem;
+    background-color: #2C494D;
+    color: white;
+    padding: 10px 25px 10px 25px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+  }
+  .checkout__cardElement {
+    width: 450px;
+    border: 1px solid #46555F;
+  }
+}

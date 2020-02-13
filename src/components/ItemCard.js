@@ -4,6 +4,7 @@ import "../styles/ItemCard.scss"
 
 export class ItemCard extends Component {
   render() {
+    console.log(this.props.image)
     return (
       <div>
         <div className="grid-item">
@@ -12,7 +13,7 @@ export class ItemCard extends Component {
             to={`/products/${this.props.id}`}
             style={{ textDecoration: "none" }}
           >
-            <img src="logo512.png" alt="product" />
+            <img src={`${this.props.image}`} alt="product" />
             <p className={"item-card__name"}>{this.props.name}</p>
             <p className={"item-card__price"}>${this.props.price}</p>
           </Link>

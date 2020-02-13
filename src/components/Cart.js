@@ -119,7 +119,7 @@ export class Cart extends Component {
 
     return (
       <div className="main__container">
-        <h1>Your Cart</h1>
+        <h1 className="cart__label">Your Cart</h1>
         {localStorage.getItem("cartArray")
           ? product.map((item, id) => (
               <div className="cart__item">

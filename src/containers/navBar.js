@@ -38,7 +38,7 @@ class NavBar extends Component {
             {this.props.currentUser.name ? (
               // <Link onCLick={this.handleClick} to="/signin">SignOut</Link>
               <button onClick={this.handleClick} className={"navbar__button"}>
-                LOGIN
+                LOGOUT
               </button>
             ) : (
               <Link to="/signin">

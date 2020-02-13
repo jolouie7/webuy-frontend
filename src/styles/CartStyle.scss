@@ -1,10 +1,29 @@
 .main__container {
   height: 80vh;
+  display: grid;
+  grid-template-rows: 1fr 4fr;
+  grid-template-columns: 1fr;
+  // grid-template-areas: "
+  // cartLabel,
+  // cartItem,
+  // cartTotal
+  // "
+  // ;
+
+  .cart__label {
+    // grid-area: "cartLabel";
+    height: 2rem;
+  }
+
+  .cart__total {
+    // grid-area: "cartTotal";
+  }
   .cart__item {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 10px 500px 10px 100px;
     // justify-content: center;
     align-items: center;
+    grid-area: "cartItem";
 
     .item__name {
       color: #2C494D;
