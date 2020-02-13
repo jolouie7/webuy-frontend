@@ -1,0 +1,34 @@
+.main__container {
+  height: 80vh;
+  .cart__item {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 10px 500px 10px 100px;
+    // justify-content: center;
+    align-items: center;
+
+    .item__name {
+      color: #2C494D;
+      font-family: Helvetica, sans-serif;
+      font-size: 18px;
+      display: grid;
+      justify-content: center;
+    }
+    .item__price {
+      display: grid;
+      justify-content: center;
+    }
+    .item__quantity {
+      display: grid;
+      justify-content: center;
+    }
+  }
+
+  .cart__checkout {
+    background-color: #1F7A8F;
+    color: white;
+    padding: 10px 25px 10px 25px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 2rem 0;
+  }
+}

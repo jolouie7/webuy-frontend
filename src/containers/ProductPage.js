@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+import "../styles/ProductPageStyle.scss"
 // import AddItemToCart from "../actions/AddItemToCart"
 
 // Find out which product was clicked and display there info
@@ -39,7 +40,7 @@ export class ProductPage extends Component {
       product => product.id == this.props.match.params.id
     );
     return (
-      <div>
+      <div className="main__container">
         {/* side imgs */}
         <img src="/logo192.png" />
         <img src="/logo192.png" />

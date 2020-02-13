@@ -16,7 +16,9 @@
     input {
       outline: none;
       border-radius: 3px;
+      padding: 5px 2rem 5px 2rem;
     }
+    //sign in button
     input:last-child {
       background-color: #1F7A8F;
       color: white;
@@ -25,7 +27,7 @@
       cursor: pointer;
     }
     label, input {
-      margin: 1rem 0;
+      margin: 5px 0;
     }
     form {
       margin-bottom: 1rem;

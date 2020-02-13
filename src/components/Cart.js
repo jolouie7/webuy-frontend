@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import AddTotal from "../actions/AddTotal";
-import SubtractTotal from "../actions/SubtractTotal"
+import SubtractTotal from "../actions/SubtractTotal";
 import createHistory from "history/createBrowserHistory";
+import "../styles/CartStyle.scss";
 
 export class Cart extends Component {
   state = {
@@ -17,13 +18,14 @@ export class Cart extends Component {
     // this.setState({ stateTotal: countTotal });
 
     //check to see if this array is empty
-    if(JSON.parse(localStorage.getItem("cartArray").length !== 0)) {
-      let itemArr = JSON.parse(localStorage.getItem("cartArray"))
-      .map(item => item.price)
+    if (JSON.parse(localStorage.getItem("cartArray").length !== 0)) {
+      let itemArr = JSON.parse(localStorage.getItem("cartArray")).map(
+        item => item.price
+      );
       //add up amounts in total
       let totalAmount = 0;
-      for(let i of itemArr) {
-        totalAmount = parseInt(i) + totalAmount
+      for (let i of itemArr) {
+        totalAmount = parseInt(i) + totalAmount;
       }
       this.setState({ stateTotal: totalAmount });
       this.props.addTotal(totalAmount);
@@ -78,17 +80,17 @@ export class Cart extends Component {
 
     //subtract from total
     let deletedItemPrice = cartArray[idx].price;
-    console.log(typeof deletedItemPrice)
+    console.log(typeof deletedItemPrice);
     // let subtractedTotal = this.state.stateTotal - deletedItemPrice
     this.setState(prevState => {
-      return {stateTotal: prevState.stateTotal - deletedItemPrice}
+      return { stateTotal: prevState.stateTotal - deletedItemPrice };
     });
-    console.log(this.state.stateTotal)
-    this.props.subtractTotal(this.state.stateTotal)
+    console.log(this.state.stateTotal);
+    this.props.subtractTotal(this.state.stateTotal);
 
     // this.props.history.push("/cart_items");
     this.forceUpdate();
-    hist.go(0)
+    hist.go(0);
   };
 
   handleCheckout = () => {
@@ -116,26 +118,33 @@ export class Cart extends Component {
     // console.log(product[0])
 
     return (
-      <div>
+      <div className="main__container">
         <h1>Your Cart</h1>
         {localStorage.getItem("cartArray")
           ? product.map((item, id) => (
-              <div>
-                <h1>{item.name}</h1>
-                <h1>${item.price}</h1>
-                <h1>{item.image}</h1>
+              <div className="cart__item">
+                <h1 className="item__name">{item.name}</h1>
+                <h1 className="item__price">${item.price}</h1>
+                {/* <h1 className="item__image">{item.image}</h1> */}
+                <h1 className="item__image">Image Here</h1>
                 <button>+</button>
-                <h3>Quantity: {item.quantity}</h3>
+                <h3 className="item__quantity">Quantity: {item.quantity}</h3>
                 <button>-</button>
-                <button onClick={this.handleClick} value={item.id}>
+                <button
+                  className="item__delete"
+                  onClick={this.handleClick}
+                  value={item.id}
+                >
                   Delete
                 </button>
               </div>
             ))
           : null}
         <br />
-        <h1>Total: ${this.props.total}</h1>
-        <button onClick={this.handleCheckout}>Checkout</button>
+        <h1 className="cart__total">Total: ${this.props.total}</h1>
+        <button className="cart__checkout" onClick={this.handleCheckout}>
+          Checkout
+        </button>
       </div>
     );
   }
