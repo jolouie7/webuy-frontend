@@ -94,6 +94,7 @@ export class Cart extends Component {
   };
 
   handleCheckout = () => {
+    // window.alert("Added")
     this.props.history.push("/checkout");
   };
 
