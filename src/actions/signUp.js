@@ -24,12 +24,14 @@ const signUp = (e, userInfo, history) => {
     })
       .then(res => res.json())
       .then(data => {
-        if (data.message) {
+        if (data.error) {
           console.log("There was an error when creating a user account");
+          window.alert("There was an error when creating a user account");
         } else {
           localStorage.setItem("token", data.jwt);
           // check what data.user really is
           dispatch(loginUser(data.user.data.attributes));
+          history.push("/");
           // console.log(data.user);
           // {data: {…}}
           // console.log(data.user.data);
@@ -39,9 +41,9 @@ const signUp = (e, userInfo, history) => {
           // ----------- Theres no password being shown for attributes ----------------------
         }
       })
-      .then(() => {
-        history.push('/')
-      })
+      // .then(() => {
+      //   history.push('/')
+      // })
       // .then(data => {
       //   // check to see if this is the current attributes
       //   dispatch({ type: "SET_CURRENT_USER", user: data.user });

@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import signIn from "../actions/signIn";
 import { Link } from "react-router-dom";
-import "../styles/SignInStyle.scss"
+import "../styles/SignInStyle.scss";
 
 class SignIn extends Component {
   state = {
@@ -11,6 +11,7 @@ class SignIn extends Component {
   };
 
   handleChange = event => {
+    event.preventDefault();
     this.setState({
       [event.target.name]: event.target.value
     });

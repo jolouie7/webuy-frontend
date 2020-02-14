@@ -86,13 +86,13 @@ class App extends Component {
             path="/checkout"
             render={props => <CheckoutProcess1 {...props} />}
           />
-          <switch>
+          {/* <switch> */}
             <Route
               exact
               path="/signin"
               render={props => <SignIn {...props} />}
             />
-          </switch>
+          {/* </switch> */}
         </Switch>
         {/* when a user is logged in, the footer will show, else it won't show */}
         {/* {Object.keys(this.props.currentUser).length !== 0 ? <Footer /> : null} */}

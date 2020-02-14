@@ -25,17 +25,19 @@ const signIn = (e, userInfo, history) => {
           // This assumes your Rails API will return a JSON object with a key of
           // 'message' if there is an error
           console.log("ERROR with signing in");
+          window.alert("Wrong Username or Password!")
         } else {
           localStorage.setItem("token", data.jwt);
           dispatch(loginUser(data.user.data.attributes));
+          history.push("/");
         }
       })
       // .then(() => {
       //   getProducts();
       // })
-      .then(() => {
-        history.push("/")
-      })
+      // .then(() => {
+        
+      // })
   };
 };
 
