@@ -6,27 +6,33 @@ import "../styles/ProductPageStyle.scss"
 
 // Find out which product was clicked and display there info
 export class ProductPage extends Component {
-    handleClick = (item) => {
-      // Get the existing data
-      let existing = localStorage.getItem("cartArray");
-      // If no existing data, create an array
-      // Otherwise, convert the localStorage string to an array
-      existing = existing === null ? [] : JSON.parse(existing);
-      // Add new data to localStorage Array
-      existing.push(item);
-      // Save back to localStorage
-      localStorage.setItem("cartArray", JSON.stringify(existing))
+  componentDidMount() {
+    // scroll up after clicking on a product
+    // https://stackoverflow.com/questions/33188994/scroll-to-the-top-of-the-page-after-render-in-react-js
+    window.scrollTo(0, 0)
+  }
 
-      // const jason = JSON.parse(localStorage.getItem("cartArray");
-      // const cartArray = [...jason];
+  handleClick = (item) => {
+    // Get the existing data
+    let existing = localStorage.getItem("cartArray");
+    // If no existing data, create an array
+    // Otherwise, convert the localStorage string to an array
+    existing = existing === null ? [] : JSON.parse(existing);
+    // Add new data to localStorage Array
+    existing.push(item);
+    // Save back to localStorage
+    localStorage.setItem("cartArray", JSON.stringify(existing))
 
-      // uncomment this code
-      // cartArray.push(item);
-      // console.log(cartArray);
-      // localStorage.setItem("cartArray", [JSON.parse(localStorage.getItem("cartArray"), JSON.stringify(cartArray)]); // might need to change item_id into int
-      // const x = JSON.parse(localStorage.getItem("cartArray"));
-      // console.log(x)
-    }
+    // const jason = JSON.parse(localStorage.getItem("cartArray");
+    // const cartArray = [...jason];
+
+    // uncomment this code
+    // cartArray.push(item);
+    // console.log(cartArray);
+    // localStorage.setItem("cartArray", [JSON.parse(localStorage.getItem("cartArray"), JSON.stringify(cartArray)]); // might need to change item_id into int
+    // const x = JSON.parse(localStorage.getItem("cartArray"));
+    // console.log(x)
+  }
   render() {
     // console.log((this.props.products))
     // console.log((typeof this.props.match.params.id)) // gives ID
