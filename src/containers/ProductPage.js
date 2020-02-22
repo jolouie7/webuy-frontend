@@ -1,10 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import "../styles/ProductPageStyle.scss"
-// import AddItemToCart from "../actions/AddItemToCart"
 
-// Find out which product was clicked and display there info
 export class ProductPage extends Component {
   componentDidMount() {
     // scroll up after clicking on a product
@@ -22,38 +20,13 @@ export class ProductPage extends Component {
     existing.push(item);
     // Save back to localStorage
     localStorage.setItem("cartArray", JSON.stringify(existing))
-
-    // const jason = JSON.parse(localStorage.getItem("cartArray");
-    // const cartArray = [...jason];
-
-    // uncomment this code
-    // cartArray.push(item);
-    // console.log(cartArray);
-    // localStorage.setItem("cartArray", [JSON.parse(localStorage.getItem("cartArray"), JSON.stringify(cartArray)]); // might need to change item_id into int
-    // const x = JSON.parse(localStorage.getItem("cartArray"));
-    // console.log(x)
   }
   render() {
-    // console.log((this.props.products))
-    // console.log((typeof this.props.match.params.id)) // gives ID
-
-    // const product = {(Object.keys(this.props.products).length !== 0) ? (this.props.products).map(
-    //   (item => console.log(item))) : null}
-    // ;
-
     const item = this.props.products.find(
-      // product => product.id == parseInt(this.props.match.params.id)
       product => product.id == this.props.match.params.id
     );
-    console.log(item)
-    console.log(this.props)
     return (
       <div className="main__container">
-        {/* side imgs */}
-        {/* <img src="/logo192.png" />
-        <img src="/logo192.png" />
-        <img src="/logo192.png" /> */}
-        {/* main img */}
         {Object.keys(this.props.products).length !== 0 ? (
           <div className="item__container">
             <img src={item.image} alt="product" />
@@ -80,8 +53,6 @@ export class ProductPage extends Component {
               <div>Postage: FREE</div> */}
                 {/* --------------------Do Not delete--------------------- */}
               </div>
-              {/* <button onClick={console.log("hit", () => this.props.addToCart(item))}>Add To Cart</button> */}
-              {/* make this an anonymous function, so it won't get fired when mounted */}
               <button
                 onClick={() => {
                   this.handleClick(item);
@@ -90,8 +61,6 @@ export class ProductPage extends Component {
                 Add To Cart
               </button>
             </div>
-            {/* <button onClick={console.log("hit 47")}>Add To Cart</button> */}
-            {/* <button>Buy Now</button> */}
           </div>
         ) : null}
       </div>
@@ -104,8 +73,4 @@ const mapStateToProps = state => ({
   products: state.products
 });
 
-const mapDispatchToProps = dispatch => ({
-  // addToCart: item => dispatch(AddItemToCart(item))
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(ProductPage);
+export default connect(mapStateToProps)(ProductPage);
