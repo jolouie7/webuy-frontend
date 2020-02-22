@@ -13,9 +13,6 @@ const getUser = () => {
         .then(resp => resp.json())
         .then(data => {
           if (data.message) {
-            // An error will occur if the token is invalid.
-            // If this happens, you may want to remove the invalid token.
-            console.log("remove token")
             localStorage.removeItem("token")
           } else {
             dispatch(loginUser(data.user.data.attributes))

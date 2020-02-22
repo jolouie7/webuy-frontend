@@ -1,5 +1,3 @@
-// import getProducts from "./getProducts"
-
 const signIn = (e, userInfo, history) => {
   e.preventDefault();
   return dispatch => {
@@ -19,11 +17,7 @@ const signIn = (e, userInfo, history) => {
     })
       .then(resp => resp.json())
       .then(data => {
-        console.log(data)
       if (data.message) {
-          // Here you should have logic to handle invalid login credentials.
-          // This assumes your Rails API will return a JSON object with a key of
-          // 'message' if there is an error
           console.log("ERROR with signing in");
           window.alert("Wrong Username or Password!")
         } else {
@@ -32,12 +26,6 @@ const signIn = (e, userInfo, history) => {
           history.push("/");
         }
       })
-      // .then(() => {
-      //   getProducts();
-      // })
-      // .then(() => {
-        
-      // })
   };
 };
 
@@ -45,7 +33,6 @@ const signIn = (e, userInfo, history) => {
 const loginUser = userObj => ({
   type: "SIGNIN_USER",
   payload: userObj
-  // payload: userObj
 });
 
 export default signIn;
