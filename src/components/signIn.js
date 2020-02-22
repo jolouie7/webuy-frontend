@@ -17,13 +17,7 @@ class SignIn extends Component {
     });
   };
 
-  // handleSubmit = e => {
-  //   e.preventDefault();
-  //   this.props.signIn(e, this.state, this.props.history);
-  // };
-
   render() {
-    // console.log(this.props)
     return (
       <div className="signin__container">
         <div className="inner__container">
@@ -69,20 +63,3 @@ const mapDispatchToProps = dispatch => ({
 });
 
 export default connect(null, mapDispatchToProps)(SignIn);
-
-
-// -------------------------- my code --------------------------
-// import React, { Component } from 'react'
-
-// class signIn extends Component {
-//   render() {
-//     return (
-//       <div>
-//         from sign in
-//       </div>
-//     )
-//   }
-// }
-
-// export default signIn
-// -------------------------- my code --------------------------

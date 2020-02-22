@@ -20,8 +20,6 @@ class CheckoutForm extends Component {
         Accept: "application/json"
       },
       body: JSON.stringify({
-        // token: token.id,
-        // orderId: this.props.orderId // project specfic
         user_id: this.props.currentUser.id,
         shipped: false,
         total: this.props.total,
@@ -30,7 +28,6 @@ class CheckoutForm extends Component {
         complete: true
       })
     });
-    // localStorage.setItem("cartArray", []);
     let existing = localStorage.getItem("cartArray");
     existing = existing === null ? [] : JSON.parse(existing);
     localStorage.setItem("cartArray", JSON.stringify(existing));
@@ -38,9 +35,7 @@ class CheckoutForm extends Component {
 
   // check to see if theres a currentUser
   submit = async () => {
-    // console.log(data)
     let tokenId = localStorage.getItem("token");
-    console.log("hi")
 
     let { token } = await this.props.stripe.createToken({ name: "Name" });
     let response = await fetch("http://localhost:3000/charges", {
@@ -52,7 +47,6 @@ class CheckoutForm extends Component {
       },
       body: JSON.stringify({
         token: token.id,
-        // orderId: this.props.orderId, // project specfic
         user_id: this.props.currentUser.id,
         total: this.props.total
       })
@@ -63,14 +57,12 @@ class CheckoutForm extends Component {
         complete: true
       });
     }
-    // this.props.payForItems();
+
     //reset cart
     localStorage.setItem("cartArray", JSON.stringify([]));
   };
 
   render() {
-    // console.log(this.props.total)
-    // console.log(this.props.currentUser);
 
     if (this.state.complete) return <h1>Purchase Complete!</h1>;
 
@@ -91,6 +83,4 @@ const mapStateToProps = state => ({
   total: state.total
 });
 
-// export default injectStripe(CheckoutForm);
-// export default injectStripe(CheckoutForm);
 export default compose(injectStripe, connect(mapStateToProps))(CheckoutForm);

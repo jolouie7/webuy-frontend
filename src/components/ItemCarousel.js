@@ -5,11 +5,9 @@ import { connect } from "react-redux";
 import ItemCard from "../components/ItemCard";
 import { Link, Route } from "react-router-dom";
 
-//This compoenet should be a container and each item should be a card
 class ItemCarousel extends Component {
   render () {
     const key = Object.keys(this.props.category)
-    console.log(this.props.category)
   return (
     <div className="main-container">
       <div className="carousel__category">
@@ -39,10 +37,6 @@ class ItemCarousel extends Component {
             </svg>
           </a>
         </div>
-        {/* map through category and render cards */}
-        {/* {this.props.category[key[0]].slice(0, 5).map((item, id) => (
-          <ItemCard key={id} itemName={item.name} itemPrice={item.price} />
-        ))} */}
         
         {Object.keys(this.props.category).length !== 0
         // slice to get only the first 5 products of the category obj
@@ -81,9 +75,7 @@ class ItemCarousel extends Component {
 }
 
 const mapStateToProps = state => ({
-  // categories: state.categories,
   products: state.products
 });
 
-// export default ItemCarousel;
 export default connect(mapStateToProps)(ItemCarousel);

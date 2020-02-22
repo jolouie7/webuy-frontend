@@ -4,7 +4,6 @@ import "../styles/ItemCard.scss"
 
 export class ItemCard extends Component {
   render() {
-    console.log(this.props)
     return (
       <div>
         <div className="grid-item">
