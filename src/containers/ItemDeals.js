@@ -1,5 +1,4 @@
 import React from 'react';
-// import "../images/logo192.png";
 import "../styles/ItemDealsStyle.scss";
 import "../images/arrow-right-solid.svg"
 
@@ -18,7 +17,6 @@ export default function ItemDeals() {
             src="https://images.unsplash.com/photo-1577741314755-048d8525d31e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80"
             alt="selected item for you"
           />
-          {/* <img src="" alt="select arrow" /> */}
           <svg
             aria-hidden="true"
             focusable="false"
@@ -43,7 +41,6 @@ export default function ItemDeals() {
             src="https://images.unsplash.com/photo-1491553895911-0055eca6402d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1100&q=80"
             alt="todays feature items"
           />
-          {/* <img src="#" alt="select arrow" /> */}
           <svg
             aria-hidden="true"
             focusable="false"
@@ -68,9 +65,7 @@ export default function ItemDeals() {
             src="https://images.unsplash.com/photo-1549465220-1a8b9238cd48?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1624&q=80"
             alt="gifts"
           />
-          {/* <img src="#" alt="select arrow" /> */}
 
-          {/* <img src="#" /> */}
           <svg
             aria-hidden="true"
             focusable="false"

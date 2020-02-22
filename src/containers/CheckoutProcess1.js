@@ -10,8 +10,6 @@ export class CheckoutProcess1 extends Component {
         <div className="main__container">
           <h1>Check Out</h1>
           <Elements>
-            {/* What do you do with orderId? */}
-            {/* <CheckoutForm orderId={this.props.initializedCart.id}/> */}
             <CheckoutForm />
           </Elements>
         </div>

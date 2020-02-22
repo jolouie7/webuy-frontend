@@ -8,7 +8,6 @@ const initialState = {
 }
 
 const rootReducer = (state = initialState, action) => {
-  console.log("in reducer", state)
   switch (action.type) {
     case "SIGNIN_USER":
       return {...state, currentUser: action.payload}
@@ -21,8 +20,7 @@ const rootReducer = (state = initialState, action) => {
     case "ADD_TOTAL":
       return {...state, total: action.payload}
     case "SUBTRACT_TOTAL":
-      console.log(action.payload, "from reducer")
-      return {...state, total: action.payload} // Adding a new item might overide existing cart items
+      return {...state, total: action.payload}
     default:
       return state;
   }
