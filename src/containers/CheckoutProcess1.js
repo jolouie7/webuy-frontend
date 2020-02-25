@@ -6,14 +6,18 @@ import "../styles/CheckoutProcess1Style.scss"
 export class CheckoutProcess1 extends Component {
   render() {
     return (
-      <StripeProvider apiKey="pk_test_d1xpbImaxKBYLxzLpKQMk4r400TUTPUbb4">
-        <div className="main__container">
-          <h1>Check Out</h1>
-          <Elements>
-            <CheckoutForm />
-          </Elements>
-        </div>
-      </StripeProvider>
+      <div>
+        <StripeProvider apiKey="pk_test_d1xpbImaxKBYLxzLpKQMk4r400TUTPUbb4">
+          <div className="main__container">
+            <h1>Check Out</h1>
+            <div className="checkout__form">
+              <Elements>
+                <CheckoutForm />
+              </Elements>
+            </div>
+          </div>
+        </StripeProvider>
+      </div>
     );
   }
 }

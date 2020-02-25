@@ -64,7 +64,7 @@ export class Cart extends Component {
     product = JSON.parse(product);
 
     return (
-      <div className="main__container">
+      <div className="main__container-cart">
         <h1 className="cart__label">Your Cart</h1>
         {localStorage.getItem("cartArray")
           ? product.map((item, id) => (
@@ -72,9 +72,11 @@ export class Cart extends Component {
                 <h1 className="item__name">{item.name}</h1>
                 <h1 className="item__price">${item.price}</h1>
                 <img className="item__image" src={item.image}></img>
-                <button>+</button>
-                <h3 className="item__quantity">Quantity: {item.quantity}</h3>
-                <button>-</button>
+                <div className="item__quantity">
+                  <button>+</button>
+                  <h3>Quantity: {item.quantity}</h3>
+                  <button>-</button>
+                </div>
                 <button
                   className="item__delete"
                   onClick={this.handleClick}

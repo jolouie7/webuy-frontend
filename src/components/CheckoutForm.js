@@ -9,6 +9,12 @@ class CheckoutForm extends Component {
     complete: false
   };
 
+  componentDidMount() {
+    // scroll up after clicking on a product
+    // https://stackoverflow.com/questions/33188994/scroll-to-the-top-of-the-page-after-render-in-react-js
+    window.scrollTo(0, 0);
+  }
+
   submit = async () => {
     // create an order POST /orders
     let tokenId = localStorage.getItem("token");
@@ -63,7 +69,6 @@ class CheckoutForm extends Component {
   };
 
   render() {
-
     if (this.state.complete) return <h1>Purchase Complete!</h1>;
 
     return (

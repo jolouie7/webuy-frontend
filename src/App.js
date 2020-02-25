@@ -87,16 +87,14 @@ class App extends Component {
             render={props => <CheckoutProcess1 {...props} />}
           />
           {/* <switch> */}
-            <Route
-              exact
-              path="/signin"
-              render={props => <SignIn {...props} />}
-            />
+          <Route exact path="/signin" render={props => <SignIn {...props} />} />
           {/* </switch> */}
         </Switch>
         {/* when a user is logged in, the footer will show, else it won't show */}
         {/* {Object.keys(this.props.currentUser).length !== 0 ? <Footer /> : null} */}
-        <Footer />
+        <footer>
+          <Footer />
+        </footer>
         {/* Place this code below somewhere instead of App.js */}
         {/* {Object.keys(this.props.currentUser).length !== 0 ? (
           <button onClick={this.handleClick}>Log Out</button>
