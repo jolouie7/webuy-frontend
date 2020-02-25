@@ -7,7 +7,7 @@ class Signup extends Component {
   state = {
     name: "",
     username: "",
-    bio: "",
+    // bio: "",
     password: "",
     password_confirmation: "",
     email: ""
@@ -28,52 +28,53 @@ class Signup extends Component {
             this.props.signUp(e, this.state, this.props.history);
           }}
         >
-          <h1 className="content-center">Create Account</h1>
+          <div className="form__input-fields">
+            <h1 className="content-center">Create Account</h1>
 
-          <div className="form__group">
-            <label>Username</label>
+            <div className="form__group">
+              <label>Username</label>
 
-            <input
-              name="username"
-              value={this.state.username}
-              onChange={this.handleChange}
-            />
-            <br />
-          </div>
+              <input
+                name="username"
+                value={this.state.username}
+                onChange={this.handleChange}
+              />
+              <br />
+            </div>
 
-          <div className="form__group">
-            <label>Password</label>
-            <input
-              type="password"
-              name="password"
-              value={this.state.password}
-              onChange={this.handleChange}
-            />
-            <br />
-          </div>
+            <div className="form__group">
+              <label>Password</label>
+              <input
+                type="password"
+                name="password"
+                value={this.state.password}
+                onChange={this.handleChange}
+              />
+              <br />
+            </div>
 
-          <div className="form__group">
-            <label>Password Confirmation</label>
-            <input
-              type="password"
-              name="password_confirmation"
-              value={this.state.password_confirmation}
-              onChange={this.handleChange}
-            />
-            <br />
-          </div>
+            <div className="form__group">
+              <label>Password Confirmation</label>
+              <input
+                type="password"
+                name="password_confirmation"
+                value={this.state.password_confirmation}
+                onChange={this.handleChange}
+              />
+              <br />
+            </div>
 
-          <div className="form__group">
-            <label>Name</label>
-            <input
-              name="name"
-              value={this.state.name}
-              onChange={this.handleChange}
-            />
-            <br />
-          </div>
+            <div className="form__group">
+              <label>Name</label>
+              <input
+                name="name"
+                value={this.state.name}
+                onChange={this.handleChange}
+              />
+              <br />
+            </div>
 
-          <div className="form__group">
+            {/* <div className="form__group">
             <label>Bio</label>
             <textarea
               name="bio"
@@ -83,16 +84,17 @@ class Signup extends Component {
               cols="10"
             />
             <br />
-          </div>
+          </div> */}
 
-          <div className="form__group">
-            <label>Email</label>
-            <input
-              name="email"
-              value={this.state.email}
-              onChange={this.handleChange}
-            />
-            <br />
+            <div className="form__group">
+              <label>Email</label>
+              <input
+                name="email"
+                value={this.state.email}
+                onChange={this.handleChange}
+              />
+              <br />
+            </div>
           </div>
           <div className="form__signup">
             <input type="submit" value="SignUp" />

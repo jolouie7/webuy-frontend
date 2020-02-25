@@ -31,15 +31,23 @@ export class ProductPage extends Component {
             <img src={item.image} alt="product" />
             <div>
               <div className="product-details__container">
-                <h1 className="product__name">{item.name}</h1>
-                <div className="product__price">${item.price}</div>
-                <div className="product__rating">Rating: {item.rating}</div>
-                <div className="product__reviews">Item Reviews</div>
-                <div className="product__description">
+                <h1 className="product__name product__feature">{item.name}</h1>
+                <div className="product__price product__feature">
+                  ${item.price}
+                </div>
+                <div className="product__rating product__feature">
+                  Rating: {item.rating}
+                </div>
+                <div className="product__reviews product__feature">
+                  Item Reviews
+                </div>
+                <div className="product__description product__feature">
                   Description: {item.description}
                 </div>
-                <div className="product__colors">Different Item Colors</div>
-                <div className="product__quantity">
+                <div className="product__colors product__feature">
+                  Different Item Colors
+                </div>
+                <div className="product__quantity product__feature">
                   Quantity: {item.quantity}
                 </div>
               </div>

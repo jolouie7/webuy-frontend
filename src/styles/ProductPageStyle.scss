@@ -2,8 +2,11 @@
   //use grid to seperate into 3 3-4columns
   display: grid;
   grid-template-columns: 1fr 2fr;
+  height: 100vh;
   img {
-    width: 80%;
+    width: 50%;
+    height: auto;
+    margin-left: 50%;
   }
   .item__container {
     display: grid;
@@ -14,10 +17,20 @@
       height: 2rem;
       width: 8rem;
       border-radius: 3px;
+      margin-top: 1rem;
+      margin-left: 25%;
       // :first-child {
       //   background-color: #2C494D;
       //   color: white;
       // }
+    }
+  }
+
+  .product-details__container {
+    margin-left: 25%;
+
+    .product__feature {
+      margin: 1rem 0;
     }
   }
 }
