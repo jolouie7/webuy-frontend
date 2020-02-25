@@ -1,16 +1,13 @@
-// .grid-item {
-  .item-card__name {
-    text-decoration: none;
-    // background: green;
-    color: #46555F;
-    font-size: 18px;
-    font-family: Helvetica;
-  }
-  .item-card__price {
-    text-decoration: none;
-    // background-color: red;
-    color: #46555F;
-    font-size: 18px;
-    font-family: Helvetica;
-  }
-// }
+.item-card__name {
+  text-decoration: none;
+  color: #46555F;
+  font-size: 18px;
+  font-family: Helvetica;
+}
+
+.item-card__price {
+  text-decoration: none;
+  color: #46555F;
+  font-size: 18px;
+  font-family: Helvetica;
+}
