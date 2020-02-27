@@ -1,7 +1,7 @@
 const signIn = (e, userInfo, history) => {
   e.preventDefault();
   return dispatch => {
-    return fetch("http://localhost:3000/signin", {
+    return fetch("https://webuy-backend.herokuapp.com/signin", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -17,15 +17,15 @@ const signIn = (e, userInfo, history) => {
     })
       .then(resp => resp.json())
       .then(data => {
-      if (data.message) {
+        if (data.message) {
           console.log("ERROR with signing in");
-          window.alert("Wrong Username or Password!")
+          window.alert("Wrong Username or Password!");
         } else {
           localStorage.setItem("token", data.jwt);
           dispatch(loginUser(data.user.data.attributes));
           history.push("/");
         }
-      })
+      });
   };
 };
 

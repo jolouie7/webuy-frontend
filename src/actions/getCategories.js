@@ -1,6 +1,6 @@
 const getCategories = () => {
   return dispatch => {
-      return fetch("http://localhost:3000/categories", {
+      return fetch("https://webuy-backend.herokuapp.com/categories", {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -13,10 +13,10 @@ const getCategories = () => {
             localStorage.removeItem("token");
           } else {
             const array = [];
-            for( let i = 0; i < data.length; i++){
+            for (let i = 0; i < data.length; i++) {
               let obj = {};
-              obj[data[i].name] = data[i].products
-              array.push(obj)
+              obj[data[i].name] = data[i].products;
+              array.push(obj);
             }
             dispatch(storeCategories(array));
           }

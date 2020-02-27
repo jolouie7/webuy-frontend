@@ -18,7 +18,7 @@ class CheckoutForm extends Component {
   submit = async () => {
     // create an order POST /orders
     let tokenId = localStorage.getItem("token");
-    let data = await fetch("http://localhost:3000/orders", {
+    let data = await fetch("https://webuy-backend.herokuapp.com/orders", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -44,7 +44,7 @@ class CheckoutForm extends Component {
     let tokenId = localStorage.getItem("token");
 
     let { token } = await this.props.stripe.createToken({ name: "Name" });
-    let response = await fetch("http://localhost:3000/charges", {
+    let response = await fetch("https://webuy-backend.herokuapp.com/charges", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

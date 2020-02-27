@@ -1,6 +1,6 @@
 const getProducts = () => {
   return dispatch => {
-      return fetch("http://localhost:3000/products", {
+      return fetch("https://webuy-backend.herokuapp.com/products", {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -12,7 +12,7 @@ const getProducts = () => {
           if (data.message) {
             localStorage.removeItem("token");
           } else {
-            dispatch(storeProducts(data.products))
+            dispatch(storeProducts(data.products));
           }
         });
   };

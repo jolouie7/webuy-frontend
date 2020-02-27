@@ -2,7 +2,7 @@ const signUp = (e, userInfo, history) => {
   // do something with loading here
   e.preventDefault();
   return dispatch => {
-    return fetch("http://localhost:3000/users", {
+    return fetch("https://webuy-backend.herokuapp.com/users", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -29,7 +29,7 @@ const signUp = (e, userInfo, history) => {
           dispatch(loginUser(data.user.data.attributes));
           history.push("/");
         }
-      })
+      });
   }
 }
 
