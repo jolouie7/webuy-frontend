@@ -56,7 +56,8 @@ class CheckoutForm extends Component {
         user_id: this.props.currentUser.id,
         total: this.props.total
       })
-    });
+    }).catch(console.log)
+    ;
 
     if (response.ok) {
       this.setState({
