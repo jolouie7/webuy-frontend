@@ -7,7 +7,7 @@ export class CheckoutProcess1 extends Component {
   render() {
     return (
       <div>
-        <StripeProvider apiKey="pk_test_d1xpbImaxKBYLxzLpKQMk4r400TUTPUbb4">
+        <StripeProvider apiKey="pk_live_INDLMNZU7LUytsPRVHnEAP4400dHARzQXG">
           <div className="main__container">
             <h1>Check Out</h1>
             <div className="checkout__form">
