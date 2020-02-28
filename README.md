@@ -4,10 +4,16 @@ You will need the Frontend and the Backend in order to make the web app work
 
 # Webuy
 
-Webuy is a E-commerce site where you can sell your products to many users.
+Webuy is a E-commerce site where you can sell your products to many users. 
 
 ## Technologies used
 Ruby on Rails, PostgreSQL, React, Redux, Stripe API
+
+## Features
+- Sign Up, using JWT
+- Sign In, using JWT
+- Add and Delete items to cart, using LocalStorage
+- Checkout, Using Stripe API
 
 # Replace with Visuals
 
