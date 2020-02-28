@@ -15,7 +15,8 @@ Ruby on Rails, PostgreSQL, React, Redux, Stripe API
 - Add and Delete items to cart, using LocalStorage
 - Checkout, Using Stripe API
 
-# Replace with Visuals
+# Demo
+![Webuy Demo](public/webuy.gif)
 
 ## Installation
 > Installation assumes that you are using OS X or Linux
