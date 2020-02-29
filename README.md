@@ -18,6 +18,8 @@ Ruby on Rails, PostgreSQL, React, Redux, Stripe API
 # Demo
 ![Webuy Demo](public/webuy.gif)
 
+[Live Site](https://webuy-frontend.herokuapp.com/)
+
 ## Installation
 > Installation assumes that you are using OS X or Linux
 > We will also be using homebrew. Recommend to install [Homebrew](https://brew.sh/)
