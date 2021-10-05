@@ -8,7 +8,7 @@ export class CheckoutProcess1 extends Component {
     return (
       <div>
         <StripeProvider
-          apiKey="pk_test_d1xpbImaxKBYLxzLpKQMk4r400TUTPUbb4"
+          apiKey={process.env.REACT_APP_STRIPE_PUBLISHABLE_KEY}
         >
           <div className="main__container">
             <h1>Check Out</h1>
