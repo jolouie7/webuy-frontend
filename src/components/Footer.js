@@ -1,6 +1,6 @@
-import React from 'react'
-import "../styles/Footer.scss"
-// convert non-BEM to BEM
+import React from "react";
+import "../styles/Footer.scss";
+
 export default function Footer() {
   return (
     <div className="footer-container">

@@ -2,16 +2,15 @@ import React, { Component } from "react";
 import { CardElement, injectStripe } from "react-stripe-elements";
 import { connect } from "react-redux";
 import { compose } from "redux";
-import "../styles/CheckoutFormStyle.scss"
+import "../styles/CheckoutFormStyle.scss";
 
 class CheckoutForm extends Component {
   state = {
-    complete: false
+    complete: false,
   };
 
   componentDidMount() {
     // scroll up after clicking on a product
-    // https://stackoverflow.com/questions/33188994/scroll-to-the-top-of-the-page-after-render-in-react-js
     window.scrollTo(0, 0);
   }
 
@@ -23,7 +22,7 @@ class CheckoutForm extends Component {
       headers: {
         "Content-Type": "application/json",
         authorization: `bearer ${tokenId}`,
-        Accept: "application/json"
+        Accept: "application/json",
       },
       body: JSON.stringify({
         user_id: this.props.currentUser.id,
@@ -31,8 +30,8 @@ class CheckoutForm extends Component {
         total: this.props.total,
         paid: true,
         tracking_number: Math.floor(Math.random() * 10000000),
-        complete: true
-      })
+        complete: true,
+      }),
     });
     let existing = localStorage.getItem("cartArray");
     existing = existing === null ? [] : JSON.parse(existing);
@@ -49,19 +48,17 @@ class CheckoutForm extends Component {
       headers: {
         "Content-Type": "application/json",
         authorization: `bearer ${tokenId}`,
-        Accept: "application/json"
+        Accept: "application/json",
       },
       body: JSON.stringify({
         token: token.id,
         user_id: this.props.currentUser.id,
-        total: this.props.total
-      })
-    }).catch(console.log)
-    ;
-
+        total: this.props.total,
+      }),
+    }).catch(console.log);
     if (response.ok) {
       this.setState({
-        complete: true
+        complete: true,
       });
     }
 
@@ -84,9 +81,9 @@ class CheckoutForm extends Component {
   }
 }
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   currentUser: state.currentUser,
-  total: state.total
+  total: state.total,
 });
 
 export default compose(injectStripe, connect(mapStateToProps))(CheckoutForm);

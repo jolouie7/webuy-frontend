@@ -7,13 +7,13 @@ import "../styles/CartStyle.scss";
 
 export class Cart extends Component {
   state = {
-    stateTotal: 0
+    stateTotal: 0,
   };
   componentDidMount() {
     //check to see if this array is empty
     if (JSON.parse(localStorage.getItem("cartArray").length !== 0)) {
       let itemArr = JSON.parse(localStorage.getItem("cartArray")).map(
-        item => item.price
+        (item) => item.price
       );
       //add up amounts in total
       let totalAmount = 0;
@@ -23,34 +23,27 @@ export class Cart extends Component {
       this.setState({ stateTotal: totalAmount });
       this.props.addTotal(totalAmount);
     } else {
-      return (
-        null
-      );
+      return null;
     }
   }
 
-  handleClick = e => {
+  handleClick = (e) => {
     const hist = createHistory();
     // ------------------- Deleting an item from localstorage ------------------------
     const cartArray = JSON.parse(localStorage.getItem("cartArray"));
     let product_id = e.target.value;
-    // remove that obj from the array in local storage
-    // -------------- ISSUE: Since I am find the product based on id,
-    // -------------- if 2 products were to have the same id, they would have the same idx
-    // FIX: if product with the same id, increase the quantity when product is added the cart
-    const idx = cartArray.findIndex(i => i.id == product_id);
-    const newCartArray = cartArray.filter(item => item !== cartArray[idx]);
+    const idx = cartArray.findIndex((i) => i.id == product_id);
+    const newCartArray = cartArray.filter((item) => item !== cartArray[idx]);
     // store the array back into localstorage
     localStorage.setItem("cartArray", JSON.stringify(newCartArray));
 
     //subtract from total
     let deletedItemPrice = cartArray[idx].price;
-    this.setState(prevState => {
+    this.setState((prevState) => {
       return { stateTotal: prevState.stateTotal - deletedItemPrice };
     });
     this.props.subtractTotal(this.state.stateTotal);
 
-    // this.props.history.push("/cart_items");
     this.forceUpdate();
     hist.go(0);
   };
@@ -97,13 +90,13 @@ export class Cart extends Component {
   }
 }
 
-const mapStateToProps = state => ({
-  total: state.total
+const mapStateToProps = (state) => ({
+  total: state.total,
 });
 
-const mapDispatchToProps = dispatch => ({
-  addTotal: amount => dispatch(AddTotal(amount)),
-  subtractTotal: amount => dispatch(SubtractTotal(amount))
+const mapDispatchToProps = (dispatch) => ({
+  addTotal: (amount) => dispatch(AddTotal(amount)),
+  subtractTotal: (amount) => dispatch(SubtractTotal(amount)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Cart);

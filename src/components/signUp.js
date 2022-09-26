@@ -1,21 +1,20 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import signUp from "../actions/signUp";
-import "../styles/SignUpStyle.scss"
+import "../styles/SignUpStyle.scss";
 
 class Signup extends Component {
   state = {
     name: "",
     username: "",
-    // bio: "",
     password: "",
     password_confirmation: "",
-    email: ""
+    email: "",
   };
 
-  handleChange = event => {
+  handleChange = (event) => {
     this.setState({
-      [event.target.name]: event.target.value
+      [event.target.name]: event.target.value,
     });
   };
 
@@ -24,7 +23,7 @@ class Signup extends Component {
       <div className="container">
         <form
           className="form__container"
-          onSubmit={e => {
+          onSubmit={(e) => {
             this.props.signUp(e, this.state, this.props.history);
           }}
         >
@@ -74,18 +73,6 @@ class Signup extends Component {
               <br />
             </div>
 
-            {/* <div className="form__group">
-            <label>Bio</label>
-            <textarea
-              name="bio"
-              value={this.state.bio}
-              onChange={this.handleChange}
-              rows="2"
-              cols="10"
-            />
-            <br />
-          </div> */}
-
             <div className="form__group">
               <label>Email</label>
               <input
@@ -105,8 +92,8 @@ class Signup extends Component {
   }
 }
 
-const mapDispatchToProps = dispatch => ({
-  signUp: (e, userInfo, history) => dispatch(signUp(e, userInfo, history))
+const mapDispatchToProps = (dispatch) => ({
+  signUp: (e, userInfo, history) => dispatch(signUp(e, userInfo, history)),
 });
 
 export default connect(null, mapDispatchToProps)(Signup);

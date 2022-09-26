@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component } from "react";
 import { connect } from "react-redux";
 import ItemCarousel from "./ItemCarousel";
 import ItemDeals from "../containers/ItemDeals";
@@ -9,8 +9,7 @@ class HomePage extends Component {
       <div>
         <div id="main-page">
           <ItemDeals />
-          {/* render only 5 categories */}
-          {this.props.categories.slice(0, 4).map(category => (
+          {this.props.categories.slice(0, 4).map((category) => (
             <ItemCarousel category={category} />
           ))}
         </div>
@@ -19,9 +18,9 @@ class HomePage extends Component {
   }
 }
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   currentUser: state.currentUser,
-  categories: state.categories
+  categories: state.categories,
 });
 
-export default connect(mapStateToProps)(HomePage)
+export default connect(mapStateToProps)(HomePage);
