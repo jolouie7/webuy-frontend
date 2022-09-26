@@ -1,5 +1,5 @@
 const getUser = () => {
-  return dispatch => {
+  return (dispatch) => {
     const token = localStorage.token;
     if (token) {
       return fetch("https://webuy-backend.herokuapp.com/profile", {
@@ -7,11 +7,11 @@ const getUser = () => {
         headers: {
           "Content-Type": "application/json",
           Accept: "application/json",
-          Authorization: `Bearer ${token}`
-        }
+          Authorization: `Bearer ${token}`,
+        },
       })
-        .then(resp => resp.json())
-        .then(data => {
+        .then((resp) => resp.json())
+        .then((data) => {
           if (data.message) {
             localStorage.removeItem("token");
           } else {
@@ -19,13 +19,12 @@ const getUser = () => {
           }
         });
     }
-  }
-}
+  };
+};
 
-// move to signIn action file
-const loginUser = userObj => ({
+const loginUser = (userObj) => ({
   type: "SIGNIN_USER",
-  payload: userObj
+  payload: userObj,
 });
 
 export default getUser;

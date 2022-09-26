@@ -1,27 +1,26 @@
 const getProducts = () => {
-  return dispatch => {
-      return fetch("https://webuy-backend.herokuapp.com/products", {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json"
+  return (dispatch) => {
+    return fetch("https://webuy-backend.herokuapp.com/products", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+    })
+      .then((resp) => resp.json())
+      .then((data) => {
+        if (data.message) {
+          localStorage.removeItem("token");
+        } else {
+          dispatch(storeProducts(data.products));
         }
-      })
-        .then(resp => resp.json())
-        .then(data => {
-          if (data.message) {
-            localStorage.removeItem("token");
-          } else {
-            dispatch(storeProducts(data.products));
-          }
-        });
+      });
   };
 };
 
-// move to action file
-const storeProducts = productObj => ({
+const storeProducts = (productObj) => ({
   type: "GET_ALL_PRODUCTS",
-  payload: productObj
+  payload: productObj,
 });
 
 export default getProducts;
